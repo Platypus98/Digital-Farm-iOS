@@ -15,9 +15,10 @@ struct RootView: View {
         let appearance = Appearance()
         TabView {
             MainScreenView(viewModel: MainScreenViewModel(devicesService: DeviceService())).tabItem {
-                Text(appearance.mainTabTitle)
+                Image("home")
+                Text(appearance.mainTabTitle).foregroundColor(.black)
             }
-        }
+        }.accentColor(.black)
     }
 }
 
@@ -27,4 +28,3 @@ private extension RootView {
         let mainTabTitle = Localized("MainScreen.Title")
     }
 }
-
