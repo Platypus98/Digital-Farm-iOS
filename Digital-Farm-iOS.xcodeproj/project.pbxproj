@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		95615270278F3C3400205A0D /* Digital_Farm_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561526F278F3C3400205A0D /* Digital_Farm_iOSApp.swift */; };
-		95615272278F3C3400205A0D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95615271278F3C3400205A0D /* ContentView.swift */; };
+		95615272278F3C3400205A0D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95615271278F3C3400205A0D /* RootView.swift */; };
 		95615274278F3C3500205A0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95615273278F3C3500205A0D /* Assets.xcassets */; };
 		95615277278F3C3500205A0D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95615276278F3C3500205A0D /* Preview Assets.xcassets */; };
 		95615282278F3C3600205A0D /* Digital_Farm_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95615281278F3C3600205A0D /* Digital_Farm_iOSTests.swift */; };
 		9561528D278F3C3600205A0D /* Digital_Farm_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561528C278F3C3600205A0D /* Digital_Farm_iOSUITests.swift */; };
+		95615C85278F45C000205A0D /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95615C84278F45C000205A0D /* MainScreenView.swift */; };
+		95615C88278F460500205A0D /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95615C87278F460500205A0D /* MainScreenViewModel.swift */; };
+		95615C8B278F470300205A0D /* InternetDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95615C8A278F470300205A0D /* InternetDevices.swift */; };
+		9561705F278F683200205A0D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95617061278F683200205A0D /* Localizable.strings */; };
+		95617067278F697800205A0D /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95617066278F697800205A0D /* Localized.swift */; };
+		9561706A278F6CC400205A0D /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95617069278F6CC400205A0D /* DeviceService.swift */; };
+		9561706C278F71FA00205A0D /* DeviceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561706B278F71FA00205A0D /* DeviceCellView.swift */; };
+		9561706F278F725700205A0D /* DeviceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561706E278F725700205A0D /* DeviceCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +43,7 @@
 /* Begin PBXFileReference section */
 		9561526C278F3C3400205A0D /* Digital-Farm-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digital-Farm-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9561526F278F3C3400205A0D /* Digital_Farm_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_Farm_iOSApp.swift; sourceTree = "<group>"; };
-		95615271278F3C3400205A0D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		95615271278F3C3400205A0D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		95615273278F3C3500205A0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95615276278F3C3500205A0D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95615278278F3C3500205A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +53,14 @@
 		95615288278F3C3600205A0D /* Digital-Farm-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Digital-Farm-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9561528C278F3C3600205A0D /* Digital_Farm_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_Farm_iOSUITests.swift; sourceTree = "<group>"; };
 		9561528E278F3C3600205A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95615C84278F45C000205A0D /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		95615C87278F460500205A0D /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		95615C8A278F470300205A0D /* InternetDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetDevices.swift; sourceTree = "<group>"; };
+		95617060278F683200205A0D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		95617066278F697800205A0D /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		95617069278F6CC400205A0D /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
+		9561706B278F71FA00205A0D /* DeviceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellView.swift; sourceTree = "<group>"; };
+		9561706E278F725700205A0D /* DeviceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +111,14 @@
 		9561526E278F3C3400205A0D /* Digital-Farm-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				95617065278F696E00205A0D /* Helpers */,
+				9561529A278F453000205A0D /* Modules */,
 				9561526F278F3C3400205A0D /* Digital_Farm_iOSApp.swift */,
-				95615271278F3C3400205A0D /* ContentView.swift */,
+				95615271278F3C3400205A0D /* RootView.swift */,
 				95615273278F3C3500205A0D /* Assets.xcassets */,
 				95615278278F3C3500205A0D /* Info.plist */,
 				95615275278F3C3500205A0D /* Preview Content */,
+				95617061278F683200205A0D /* Localizable.strings */,
 			);
 			path = "Digital-Farm-iOS";
 			sourceTree = "<group>";
@@ -128,6 +147,59 @@
 				9561528E278F3C3600205A0D /* Info.plist */,
 			);
 			path = "Digital-Farm-iOSUITests";
+			sourceTree = "<group>";
+		};
+		9561529A278F453000205A0D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9561529B278F453D00205A0D /* MainScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9561529B278F453D00205A0D /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9561706D278F723800205A0D /* Views */,
+				95617068278F6CB300205A0D /* Provider */,
+				95615C89278F46DA00205A0D /* Models */,
+				95615C84278F45C000205A0D /* MainScreenView.swift */,
+				95615C87278F460500205A0D /* MainScreenViewModel.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		95615C89278F46DA00205A0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95615C8A278F470300205A0D /* InternetDevices.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		95617065278F696E00205A0D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				95617066278F697800205A0D /* Localized.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		95617068278F6CB300205A0D /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				95617069278F6CC400205A0D /* DeviceService.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		9561706D278F723800205A0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9561706B278F71FA00205A0D /* DeviceCellView.swift */,
+				9561706E278F725700205A0D /* DeviceCellViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +286,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 95615263278F3C3400205A0D;
 			productRefGroup = 9561526D278F3C3400205A0D /* Products */;
@@ -234,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95615277278F3C3500205A0D /* Preview Assets.xcassets in Resources */,
+				9561705F278F683200205A0D /* Localizable.strings in Resources */,
 				95615274278F3C3500205A0D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95615272278F3C3400205A0D /* ContentView.swift in Sources */,
+				95615272278F3C3400205A0D /* RootView.swift in Sources */,
+				95615C8B278F470300205A0D /* InternetDevices.swift in Sources */,
+				9561706F278F725700205A0D /* DeviceCellViewModel.swift in Sources */,
+				95615C88278F460500205A0D /* MainScreenViewModel.swift in Sources */,
+				9561706C278F71FA00205A0D /* DeviceCellView.swift in Sources */,
+				95615C85278F45C000205A0D /* MainScreenView.swift in Sources */,
 				95615270278F3C3400205A0D /* Digital_Farm_iOSApp.swift in Sources */,
+				9561706A278F6CC400205A0D /* DeviceService.swift in Sources */,
+				95617067278F697800205A0D /* Localized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +374,17 @@
 			targetProxy = 95615289278F3C3600205A0D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95617061278F683200205A0D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95617060278F683200205A0D /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9561528F278F3C3600205A0D /* Debug */ = {
