@@ -12,6 +12,10 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
     // MARK: - Private properties
     @ObservedObject private(set) var viewModel: ViewModel
     private let appearance = Appearance()
+    private let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     private let gridItemLayout = Array(repeating: GridItem(.fixed(200)), count: 2)
     
     // MARK: - View
@@ -35,7 +39,7 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
         case .loaded(let devices):
             return AnyView(
                 ScrollView {
-                    LazyVGrid(columns: gridItemLayout, spacing: 20, content: {
+                    LazyVGrid(columns: columns, content: {
                         ForEach(devices) {
                             DeviceCellView(viewModel: DeviceCellViewModel(device: $0))
                         }
