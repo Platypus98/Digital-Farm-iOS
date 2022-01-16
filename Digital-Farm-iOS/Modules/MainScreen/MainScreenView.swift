@@ -32,8 +32,7 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
         switch viewModel.state {
         case .loading:
             return AnyView(ProgressView())
-        case .error(let _):
-            // TO-DO
+        case .error:
             return AnyView(ProgressView())
         case .loaded(let devices):
             return AnyView(

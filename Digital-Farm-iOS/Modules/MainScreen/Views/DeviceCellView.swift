@@ -10,6 +10,7 @@ import SwiftUI
 struct DeviceCellView<ViewModel: DeviceCellViewModelProtocol>: View {
     // MARK: - Private properties
     @ObservedObject private(set) var viewModel: ViewModel
+    private let appearance = Appearance()
     
     // MARK: - Body
     var body: some View {
@@ -23,16 +24,26 @@ struct DeviceCellView<ViewModel: DeviceCellViewModelProtocol>: View {
         })
         .frame(maxWidth: .infinity, idealHeight: 120, alignment: .leading)
         .padding(.all, CGFloat(13))
-        .background(Color("sand"))
+        .background(appearance.backgroundColor)
         .cornerRadius(17)
     }
     
     private var subtitleColor: Color {
         switch viewModel.device.status {
         case .connected:
-            return .green
+            return appearance.connectedColor
         case .notСonnected:
-            return .red
+            return appearance.notConnectedColor
         }
+    }
+}
+
+// MARK: - Private extension
+
+private extension DeviceCellView {
+    struct Appearance {
+        let backgroundColor = Color("sand")
+        let connectedColor = Color("availableStatus")
+        let notConnectedColor = Color("notAvailableStatus")
     }
 }
