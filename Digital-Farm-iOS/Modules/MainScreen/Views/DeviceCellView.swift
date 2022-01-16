@@ -19,7 +19,7 @@ struct DeviceCellView<ViewModel: DeviceCellViewModelProtocol>: View {
             Spacer(minLength: 20)
             Text(viewModel.device.name)
             Spacer(minLength: 5)
-            Text(viewModel.device.status.value)
+            Text(viewModel.device.status.textValue)
                 .foregroundColor(subtitleColor)
         })
         .frame(maxWidth: .infinity, idealHeight: 120, alignment: .leading)

@@ -21,6 +21,14 @@
 		9561706A278F6CC400205A0D /* DeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95617069278F6CC400205A0D /* DeviceService.swift */; };
 		9561706C278F71FA00205A0D /* DeviceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561706B278F71FA00205A0D /* DeviceCellView.swift */; };
 		9561706F278F725700205A0D /* DeviceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561706E278F725700205A0D /* DeviceCellViewModel.swift */; };
+		9561E7D227947D4300205A0D /* FeedPusherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7D127947D4200205A0D /* FeedPusherView.swift */; };
+		9561E7D427947D7800205A0D /* FeedPusherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7D327947D7800205A0D /* FeedPusherViewModel.swift */; };
+		9561E7D7279482C400205A0D /* FeedPusherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7D6279482C400205A0D /* FeedPusherService.swift */; };
+		9561E7DA2794831900205A0D /* FeedPusher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7D92794831900205A0D /* FeedPusher.swift */; };
+		9561E7DD27949CC600205A0D /* InterestStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7DC27949CC600205A0D /* InterestStateView.swift */; };
+		9561E7DF27949CF800205A0D /* InterestStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */; };
+		9561E7E127949D2100205A0D /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E027949D2100205A0D /* Progress.swift */; };
+		9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E22794A06300205A0D /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +69,14 @@
 		95617069278F6CC400205A0D /* DeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceService.swift; sourceTree = "<group>"; };
 		9561706B278F71FA00205A0D /* DeviceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellView.swift; sourceTree = "<group>"; };
 		9561706E278F725700205A0D /* DeviceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellViewModel.swift; sourceTree = "<group>"; };
+		9561E7D127947D4200205A0D /* FeedPusherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherView.swift; sourceTree = "<group>"; };
+		9561E7D327947D7800205A0D /* FeedPusherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherViewModel.swift; sourceTree = "<group>"; };
+		9561E7D6279482C400205A0D /* FeedPusherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherService.swift; sourceTree = "<group>"; };
+		9561E7D92794831900205A0D /* FeedPusher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusher.swift; sourceTree = "<group>"; };
+		9561E7DC27949CC600205A0D /* InterestStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestStateView.swift; sourceTree = "<group>"; };
+		9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestStateViewModel.swift; sourceTree = "<group>"; };
+		9561E7E027949D2100205A0D /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
+		9561E7E22794A06300205A0D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +168,7 @@
 		9561529A278F453000205A0D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9561E7D027947C9500205A0D /* FeedPusher */,
 				9561529B278F453D00205A0D /* MainScreen */,
 			);
 			path = Modules;
@@ -161,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9561706D278F723800205A0D /* Views */,
-				95617068278F6CB300205A0D /* Provider */,
+				95617068278F6CB300205A0D /* Service */,
 				95615C89278F46DA00205A0D /* Models */,
 				95615C84278F45C000205A0D /* MainScreenView.swift */,
 				95615C87278F460500205A0D /* MainScreenViewModel.swift */,
@@ -185,12 +202,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		95617068278F6CB300205A0D /* Provider */ = {
+		95617068278F6CB300205A0D /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				95617069278F6CC400205A0D /* DeviceService.swift */,
 			);
-			path = Provider;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		9561706D278F723800205A0D /* Views */ = {
@@ -198,6 +215,45 @@
 			children = (
 				9561706B278F71FA00205A0D /* DeviceCellView.swift */,
 				9561706E278F725700205A0D /* DeviceCellViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9561E7D027947C9500205A0D /* FeedPusher */ = {
+			isa = PBXGroup;
+			children = (
+				9561E7DB27949CA900205A0D /* Views */,
+				9561E7D82794830700205A0D /* Models */,
+				9561E7D5279482A500205A0D /* Service */,
+				9561E7D127947D4200205A0D /* FeedPusherView.swift */,
+				9561E7D327947D7800205A0D /* FeedPusherViewModel.swift */,
+			);
+			path = FeedPusher;
+			sourceTree = "<group>";
+		};
+		9561E7D5279482A500205A0D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9561E7D6279482C400205A0D /* FeedPusherService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9561E7D82794830700205A0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9561E7D92794831900205A0D /* FeedPusher.swift */,
+				9561E7E027949D2100205A0D /* Progress.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9561E7DB27949CA900205A0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9561E7DC27949CC600205A0D /* InterestStateView.swift */,
+				9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */,
+				9561E7E22794A06300205A0D /* ProgressBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,13 +389,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				95615272278F3C3400205A0D /* RootView.swift in Sources */,
+				9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */,
+				9561E7D227947D4300205A0D /* FeedPusherView.swift in Sources */,
+				9561E7D427947D7800205A0D /* FeedPusherViewModel.swift in Sources */,
+				9561E7DF27949CF800205A0D /* InterestStateViewModel.swift in Sources */,
+				9561E7E127949D2100205A0D /* Progress.swift in Sources */,
 				95615C8B278F470300205A0D /* InternetDevices.swift in Sources */,
 				9561706F278F725700205A0D /* DeviceCellViewModel.swift in Sources */,
+				9561E7DA2794831900205A0D /* FeedPusher.swift in Sources */,
 				95615C88278F460500205A0D /* MainScreenViewModel.swift in Sources */,
 				9561706C278F71FA00205A0D /* DeviceCellView.swift in Sources */,
 				95615C85278F45C000205A0D /* MainScreenView.swift in Sources */,
 				95615270278F3C3400205A0D /* Digital_Farm_iOSApp.swift in Sources */,
 				9561706A278F6CC400205A0D /* DeviceService.swift in Sources */,
+				9561E7DD27949CC600205A0D /* InterestStateView.swift in Sources */,
+				9561E7D7279482C400205A0D /* FeedPusherService.swift in Sources */,
 				95617067278F697800205A0D /* Localized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

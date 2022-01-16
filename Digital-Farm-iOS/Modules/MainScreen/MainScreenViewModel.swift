@@ -15,7 +15,7 @@ protocol MainScreenViewModelProtocol: ObservableObject {
 
 final class MainScreenViewModel: MainScreenViewModelProtocol {
     
-    // MARK: - GameListViewModelInput
+    // MARK: - Private properties
     @Published private(set) var state = State.loading
     private var bag = Set<AnyCancellable>()
     

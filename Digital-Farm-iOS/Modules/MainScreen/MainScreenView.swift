@@ -10,12 +10,17 @@ import SwiftUI
 struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
     
     // MARK: - Private properties
-    @ObservedObject private(set) var viewModel: ViewModel
+    @ObservedObject private var viewModel: ViewModel
     private let appearance = Appearance()
     private let columns = [
         GridItem(.flexible(minimum: 100, maximum: 250)),
         GridItem(.flexible(minimum: 100, maximum: 250))
     ]
+    
+    // MARK: - Init
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
     
     // MARK: - View
     var body: some View {
@@ -39,12 +44,16 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
                 ScrollView {
                     LazyVGrid(columns: columns, content: {
                         ForEach(devices) { device in
-                            NavigationLink(
-                                destination: RootView(),
-                                label: {
-                                    DeviceCellView(viewModel: DeviceCellViewModel(device: device))
-                                })
-                                .buttonStyle(PlainButtonStyle())
+                            if device.status == .connected {
+                                NavigationLink(
+                                    destination: FeedPusherView(viewModel: FeedPusherViewModel(feedPusherService: FeedPusherService())),
+                                    label: {
+                                        DeviceCellView(viewModel: DeviceCellViewModel(device: device))
+                                    })
+                                    .buttonStyle(PlainButtonStyle())
+                            } else {
+                                DeviceCellView(viewModel: DeviceCellViewModel(device: device))
+                            }
                         }
                     })
                 }.padding(.horizontal, 10)

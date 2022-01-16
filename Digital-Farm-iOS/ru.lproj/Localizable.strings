@@ -6,4 +6,14 @@
   
 */
 
+// MARK: - MainScreen
 "MainScreen.Title" = "Главная";
+"MainScreen.InternetDevice.Connected" = "Подключен";
+"MainScreen.InternetDevice.NotСonnected" = "Не подключен";
+
+// MARK: - FeedPusher
+"FeedPusher.Title" = "Робот feed pusher";
+"FeedPusher.Status.Waiting" = "Режим ожидания";
+"FeedPusher.Status.InWork" = "В работе";
+"FeedPusher.Charge.Title" = "Заряд";
+"FeedPusher.StockLevel.Title" = "Запас компонента";
