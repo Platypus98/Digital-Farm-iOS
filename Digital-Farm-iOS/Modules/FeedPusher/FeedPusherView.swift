@@ -11,6 +11,7 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
     
     // MARK: - Private properties
     @ObservedObject private var viewModel: ViewModel
+    @State private var dispenserPerformance = 30.0
     private let appearance = Appearance()
     
     // MARK: - Init
@@ -33,34 +34,36 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
             return AnyView(ProgressView())
         case .loaded(let feedPusher):
             return AnyView(
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(feedPusher.status.textValue)
-                            .font(.system(size: 25, weight: .medium, design: .default))
-                            .foregroundColor(statusColor(feedPusher.status))
-                        HStack {
-                            InterestStateView(
-                                viewModel: InterestStateViewModel(
-                                    progress: .init(
-                                        title: appearance.chargeTitle,
-                                        percent: feedPusher.chargeLevel
-                                    )
-                                )
-                            )
-                            InterestStateView(
-                                viewModel: InterestStateViewModel(
-                                    progress: .init(
-                                        title: appearance.stockLevelTitle,
-                                        percent: feedPusher.stockLevel
-                                    )
-                                )
-                            )
+                ScrollView {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(feedPusher.status.textValue)
+                                .font(.system(size: 25, weight: .medium, design: .default))
+                                .foregroundColor(statusColor(feedPusher.status))
+                            
+                            Spacer(minLength: 20)
+                            Group {
+                                HStack {
+                                    createProgressView(title: appearance.chargeTitle, percent: feedPusher.chargeLevel)
+                                    createProgressView(title: appearance.stockLevelTitle, percent: feedPusher.stockLevel)
+                                }
+                            }
+                           
+                            Spacer(minLength: 30)
+                            Group {
+                                Text(appearance.dispenserPerformance)
+                                VStack {
+                                    createSliderView(initValue: $dispenserPerformance)
+                                    Text("\(Int(dispenserPerformance))")
+                                }
+                            }
+                            
+                            Spacer()
                         }
                         Spacer()
                     }
-                    Spacer()
-                }
-                .padding(.all, 13)
+                    .padding(.all, 13)
+                 }
             )
         }
     }
@@ -68,6 +71,33 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
 
 // MARK: - Private extension
 private extension FeedPusherView {
+    
+    private func createProgressView(
+        title: String,
+        percent: Double
+    ) -> some View {
+        InterestStateView(
+            viewModel: InterestStateViewModel(
+                progress: .init(
+                    title: title,
+                    percent: percent
+                )
+            )
+        )
+    }
+    
+    private func createSliderView(initValue: Binding<Double>) -> some View {
+        Slider(
+            value: initValue,
+            in: 0...100,
+            step: 1,
+            onEditingChanged: { _ in },
+            minimumValueLabel: Text("0"),
+            maximumValueLabel: Text("100")
+        ) {
+            Text(appearance.dispenserPerformance)
+        }
+    }
     
     private func statusColor(_ status: FeedPusherStatus) -> Color {
         switch status {
@@ -86,6 +116,7 @@ private extension FeedPusherView {
         let title = Localized("FeedPusher.Title")
         let chargeTitle = Localized("FeedPusher.Charge.Title")
         let stockLevelTitle = Localized("FeedPusher.StockLevel.Title")
+        let dispenserPerformance = Localized("FeedPusher.DispenserPerformance.Title")
         let waitingColor = Color("waitingStatus")
         let inWorkColor = Color("inWorkStatus")
     }

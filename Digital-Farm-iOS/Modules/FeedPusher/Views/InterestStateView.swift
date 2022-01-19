@@ -14,14 +14,12 @@ struct InterestStateView<ViewModel: InterestStateViewModelProtocol>: View {
     private let appearance = Appearance()
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack(alignment: .leading, spacing: 10) {
-                Text(viewModel.progress.title)
-                    .foregroundColor(appearance.titleColor)
-                Text(String(Int(viewModel.progress.percent)) + " %")
-                ProgressBar(value: viewModel.progress.percent/100)
-                    .frame(width: geometry.size.width*2/3, height: 10)
-            }
+        VStack(alignment: .leading, spacing: 10) {
+            Text(viewModel.progress.title)
+                .foregroundColor(appearance.titleColor)
+            Text(String(Int(viewModel.progress.percent)) + " %")
+            ProgressBar(value: viewModel.progress.percent/100)
+                .frame(height: 10)
         }
     }
 }
