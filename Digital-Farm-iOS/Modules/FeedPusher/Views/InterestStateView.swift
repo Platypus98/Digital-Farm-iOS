@@ -19,7 +19,7 @@ struct InterestStateView<ViewModel: InterestStateViewModelProtocol>: View {
                 .foregroundColor(appearance.titleColor)
             Text(String(Int(viewModel.progress.percent)) + " %")
             ProgressBar(value: viewModel.progress.percent/100)
-                .frame(height: 10)
+                .frame(width: 80, height: 10)
         }
     }
 }

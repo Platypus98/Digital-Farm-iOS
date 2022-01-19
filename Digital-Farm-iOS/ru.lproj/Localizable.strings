@@ -18,3 +18,6 @@
 "FeedPusher.Charge.Title" = "Заряд";
 "FeedPusher.StockLevel.Title" = "Запас компонента";
 "FeedPusher.DispenserPerformance.Title" = "Производительность дозатора";
+"FeedPusher.Schedule.Title" = "График работы";
+"FeedPusher.ServiceMenu.Title" = "Сервисное меню";
+"FeedPusher.Analytics.Title" = "Аналитика";

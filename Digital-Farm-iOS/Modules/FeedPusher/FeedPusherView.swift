@@ -45,25 +45,42 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
                             Group {
                                 HStack {
                                     createProgressView(title: appearance.chargeTitle, percent: feedPusher.chargeLevel)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     createProgressView(title: appearance.stockLevelTitle, percent: feedPusher.stockLevel)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
-                           
+                            
                             Spacer(minLength: 30)
                             Group {
                                 Text(appearance.dispenserPerformance)
                                 VStack {
                                     createSliderView(initValue: $dispenserPerformance)
                                     Text("\(Int(dispenserPerformance))")
+                                        .padding(.all, 10)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .stroke(Color.gray, lineWidth: 1)
+                                        )
                                 }
                             }
                             
-                            Spacer()
+                            Spacer(minLength: 30)
+                            VStack(alignment: .leading){
+                                ForEach(viewModel.actions) { action in
+                                    NavigationLink(
+                                        destination: RootView(),
+                                        label: {
+                                            ActionView(title: action.title, iconName: action.iconName)
+                                        }
+                                    )
+                                }
+                            }
                         }
                         Spacer()
                     }
                     .padding(.all, 13)
-                 }
+                }
             )
         }
     }

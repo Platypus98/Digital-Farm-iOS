@@ -29,6 +29,8 @@
 		9561E7DF27949CF800205A0D /* InterestStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */; };
 		9561E7E127949D2100205A0D /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E027949D2100205A0D /* Progress.swift */; };
 		9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E22794A06300205A0D /* ProgressBar.swift */; };
+		95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9232798797D00BC4607 /* FeedPusherAction.swift */; };
+		95EBD9262798855B00BC4607 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9252798855B00BC4607 /* ActionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestStateViewModel.swift; sourceTree = "<group>"; };
 		9561E7E027949D2100205A0D /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		9561E7E22794A06300205A0D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		95EBD9232798797D00BC4607 /* FeedPusherAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherAction.swift; sourceTree = "<group>"; };
+		95EBD9252798855B00BC4607 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				9561526E278F3C3400205A0D /* Digital-Farm-iOS */,
-				95615280278F3C3600205A0D /* Digital-Farm-iOSTests */,
 				9561528B278F3C3600205A0D /* Digital-Farm-iOSUITests */,
 				9561526D278F3C3400205A0D /* Products */,
 			);
@@ -135,6 +138,7 @@
 				95615278278F3C3500205A0D /* Info.plist */,
 				95615275278F3C3500205A0D /* Preview Content */,
 				95617061278F683200205A0D /* Localizable.strings */,
+				95615280278F3C3600205A0D /* Digital-Farm-iOSTests */,
 			);
 			path = "Digital-Farm-iOS";
 			sourceTree = "<group>";
@@ -244,6 +248,7 @@
 			children = (
 				9561E7D92794831900205A0D /* FeedPusher.swift */,
 				9561E7E027949D2100205A0D /* Progress.swift */,
+				95EBD9232798797D00BC4607 /* FeedPusherAction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				9561E7DC27949CC600205A0D /* InterestStateView.swift */,
 				9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */,
 				9561E7E22794A06300205A0D /* ProgressBar.swift */,
+				95EBD9252798855B00BC4607 /* ActionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -401,7 +407,9 @@
 				9561706C278F71FA00205A0D /* DeviceCellView.swift in Sources */,
 				95615C85278F45C000205A0D /* MainScreenView.swift in Sources */,
 				95615270278F3C3400205A0D /* Digital_Farm_iOSApp.swift in Sources */,
+				95EBD9262798855B00BC4607 /* ActionView.swift in Sources */,
 				9561706A278F6CC400205A0D /* DeviceService.swift in Sources */,
+				95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */,
 				9561E7DD27949CC600205A0D /* InterestStateView.swift in Sources */,
 				9561E7D7279482C400205A0D /* FeedPusherService.swift in Sources */,
 				95617067278F697800205A0D /* Localized.swift in Sources */,
