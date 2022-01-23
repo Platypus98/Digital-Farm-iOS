@@ -28,6 +28,8 @@
 		9561E7DF27949CF800205A0D /* InterestStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */; };
 		9561E7E127949D2100205A0D /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E027949D2100205A0D /* Progress.swift */; };
 		9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E22794A06300205A0D /* ProgressBar.swift */; };
+		95E0DEAF279D837500ACC9E2 /* ServiceMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */; };
+		95E0DEB1279D838A00ACC9E2 /* ServiceMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */; };
 		95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9232798797D00BC4607 /* FeedPusherAction.swift */; };
 		95EBD9262798855B00BC4607 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9252798855B00BC4607 /* ActionView.swift */; };
 		95EBD92C27988F9B00BC4607 /* Digital_Farm_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD92A27988F9B00BC4607 /* Digital_Farm_iOSTests.swift */; };
@@ -77,6 +79,8 @@
 		9561E7DE27949CF800205A0D /* InterestStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestStateViewModel.swift; sourceTree = "<group>"; };
 		9561E7E027949D2100205A0D /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		9561E7E22794A06300205A0D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuView.swift; sourceTree = "<group>"; };
+		95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuViewModel.swift; sourceTree = "<group>"; };
 		95EBD9232798797D00BC4607 /* FeedPusherAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherAction.swift; sourceTree = "<group>"; };
 		95EBD9252798855B00BC4607 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		95EBD92A27988F9B00BC4607 /* Digital_Farm_iOSTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Digital_Farm_iOSTests.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 		9561529A278F453000205A0D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				95E0DEAD279D832900ACC9E2 /* ServiceMenu */,
 				9561E7D027947C9500205A0D /* FeedPusher */,
 				9561529B278F453D00205A0D /* MainScreen */,
 			);
@@ -253,6 +258,15 @@
 				95EBD9252798855B00BC4607 /* ActionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		95E0DEAD279D832900ACC9E2 /* ServiceMenu */ = {
+			isa = PBXGroup;
+			children = (
+				95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */,
+				95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */,
+			);
+			path = ServiceMenu;
 			sourceTree = "<group>";
 		};
 		95EBD92927988F9B00BC4607 /* Digital-Farm-iOSTests */ = {
@@ -402,11 +416,13 @@
 				9561E7E127949D2100205A0D /* Progress.swift in Sources */,
 				95615C8B278F470300205A0D /* InternetDevices.swift in Sources */,
 				9561706F278F725700205A0D /* DeviceCellViewModel.swift in Sources */,
+				95E0DEB1279D838A00ACC9E2 /* ServiceMenuViewModel.swift in Sources */,
 				9561E7DA2794831900205A0D /* FeedPusher.swift in Sources */,
 				95615C88278F460500205A0D /* MainScreenViewModel.swift in Sources */,
 				9561706C278F71FA00205A0D /* DeviceCellView.swift in Sources */,
 				95615C85278F45C000205A0D /* MainScreenView.swift in Sources */,
 				95615270278F3C3400205A0D /* Digital_Farm_iOSApp.swift in Sources */,
+				95E0DEAF279D837500ACC9E2 /* ServiceMenuView.swift in Sources */,
 				95EBD9262798855B00BC4607 /* ActionView.swift in Sources */,
 				9561706A278F6CC400205A0D /* DeviceService.swift in Sources */,
 				95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */,

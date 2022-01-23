@@ -39,10 +39,13 @@ final class FeedPusherViewModel: FeedPusherViewModelProtocol {
     private let feedPusherService: FeedPusherServiceProtocol
     
     // MARK: - Init
-    init(feedPusherService: FeedPusherServiceProtocol) {
+    init(
+        feedPusherService: FeedPusherServiceProtocol = FeedPusherService()
+    ) {
         self.feedPusherService = feedPusherService
     }
     
+    // MARK: - FeedPusherViewModelProtocol
     func fetchFeedPusher() {
         state = .loaded(feedPusherService.fetchInfo())
     }

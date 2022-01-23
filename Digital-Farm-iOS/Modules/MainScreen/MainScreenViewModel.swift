@@ -22,7 +22,9 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     private let devicesService: DeviceServiceProtocol
     
     // MARK: - Init
-    init(devicesService: DeviceServiceProtocol) {
+    init(
+        devicesService: DeviceServiceProtocol = DeviceService()
+    ) {
         self.devicesService = devicesService
     }
     

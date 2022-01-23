@@ -14,7 +14,7 @@ struct RootView: View {
     var body: some View {
         let appearance = Appearance()
         TabView {
-            MainScreenView(viewModel: MainScreenViewModel(devicesService: DeviceService())).tabItem {
+            MainScreenView(viewModel: MainScreenViewModel()).tabItem {
                 Image("home")
                 Text(appearance.mainTabTitle).foregroundColor(.black)
             }

@@ -46,7 +46,7 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
                         ForEach(devices) { device in
                             if device.status == .connected {
                                 NavigationLink(
-                                    destination: FeedPusherView(viewModel: FeedPusherViewModel(feedPusherService: FeedPusherService())),
+                                    destination: FeedPusherView(viewModel: FeedPusherViewModel()),
                                     label: {
                                         DeviceCellView(viewModel: DeviceCellViewModel(device: device))
                                     })
