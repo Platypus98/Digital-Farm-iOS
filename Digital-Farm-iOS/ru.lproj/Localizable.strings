@@ -21,3 +21,5 @@
 "FeedPusher.Schedule.Title" = "График работы";
 "FeedPusher.ServiceMenu.Title" = "Сервисное меню";
 "FeedPusher.Analytics.Title" = "Аналитика";
+"FeedPusher.Start.Title" = "Запуск";
+"FeedPusher.Return.Title" = "Возврат";
