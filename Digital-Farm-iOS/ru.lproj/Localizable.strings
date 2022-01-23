@@ -23,3 +23,6 @@
 "FeedPusher.Analytics.Title" = "Аналитика";
 "FeedPusher.Start.Title" = "Запуск";
 "FeedPusher.Return.Title" = "Возврат";
+
+// MARK: - FeedPusher.ServiceMenu
+"FeedPusher.ServiceMenu.Title" = "Сервисное меню";

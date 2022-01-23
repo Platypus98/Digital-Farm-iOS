@@ -19,6 +19,7 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
         self.viewModel = viewModel
     }
     
+    // MARK: - Content
     var body: some View {
         content.navigationTitle(appearance.title)
         .onAppear(perform: {
@@ -69,7 +70,7 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
                                 VStack(alignment: .leading){
                                     ForEach(viewModel.actions) { action in
                                         NavigationLink(
-                                            destination: RootView(),
+                                            destination: destinationView(actionType: action.id),
                                             label: {
                                                 ActionView(title: action.title, iconName: action.iconName)
                                             }
@@ -147,6 +148,17 @@ private extension FeedPusherView {
                 .padding(.vertical, 12)
                 .padding(.horizontal, 54)
                 .font(.headline)
+        }
+    }
+    
+    private func destinationView(actionType: ActionType) -> some View {
+        switch actionType {
+        case .schedule:
+            return AnyView(ProgressView())
+        case .serviceMenu:
+            return AnyView(ServiceMenuView(viewModel: ServiceMenuViewModel()))
+        case .analytics:
+            return AnyView(ProgressView())
         }
     }
     

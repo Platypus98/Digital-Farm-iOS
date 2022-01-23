@@ -22,7 +22,7 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
         self.viewModel = viewModel
     }
     
-    // MARK: - View
+    // MARK: - Content
     var body: some View {
         NavigationView {
             content.navigationTitle(appearance.title)

@@ -30,6 +30,9 @@
 		9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E22794A06300205A0D /* ProgressBar.swift */; };
 		95E0DEAF279D837500ACC9E2 /* ServiceMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */; };
 		95E0DEB1279D838A00ACC9E2 /* ServiceMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */; };
+		95E0DEB5279D89D900ACC9E2 /* FeedPusherComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEB4279D89D900ACC9E2 /* FeedPusherComponent.swift */; };
+		95E0DEB7279D8AF500ACC9E2 /* ComponentsStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEB6279D8AF500ACC9E2 /* ComponentsStatusService.swift */; };
+		95E0DEB9279D8F0600ACC9E2 /* FeedPusherComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEB8279D8F0600ACC9E2 /* FeedPusherComponentViewModel.swift */; };
 		95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9232798797D00BC4607 /* FeedPusherAction.swift */; };
 		95EBD9262798855B00BC4607 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9252798855B00BC4607 /* ActionView.swift */; };
 		95EBD92C27988F9B00BC4607 /* Digital_Farm_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD92A27988F9B00BC4607 /* Digital_Farm_iOSTests.swift */; };
@@ -81,6 +84,9 @@
 		9561E7E22794A06300205A0D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuView.swift; sourceTree = "<group>"; };
 		95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuViewModel.swift; sourceTree = "<group>"; };
+		95E0DEB4279D89D900ACC9E2 /* FeedPusherComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherComponent.swift; sourceTree = "<group>"; };
+		95E0DEB6279D8AF500ACC9E2 /* ComponentsStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsStatusService.swift; sourceTree = "<group>"; };
+		95E0DEB8279D8F0600ACC9E2 /* FeedPusherComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherComponentViewModel.swift; sourceTree = "<group>"; };
 		95EBD9232798797D00BC4607 /* FeedPusherAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherAction.swift; sourceTree = "<group>"; };
 		95EBD9252798855B00BC4607 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		95EBD92A27988F9B00BC4607 /* Digital_Farm_iOSTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Digital_Farm_iOSTests.swift; sourceTree = "<group>"; };
@@ -263,10 +269,29 @@
 		95E0DEAD279D832900ACC9E2 /* ServiceMenu */ = {
 			isa = PBXGroup;
 			children = (
+				95E0DEB2279D897600ACC9E2 /* Models */,
+				95E0DEB3279D897E00ACC9E2 /* Service */,
 				95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */,
 				95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */,
 			);
 			path = ServiceMenu;
+			sourceTree = "<group>";
+		};
+		95E0DEB2279D897600ACC9E2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95E0DEB4279D89D900ACC9E2 /* FeedPusherComponent.swift */,
+				95E0DEB8279D8F0600ACC9E2 /* FeedPusherComponentViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		95E0DEB3279D897E00ACC9E2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				95E0DEB6279D8AF500ACC9E2 /* ComponentsStatusService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		95EBD92927988F9B00BC4607 /* Digital-Farm-iOSTests */ = {
@@ -408,11 +433,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E0DEB5279D89D900ACC9E2 /* FeedPusherComponent.swift in Sources */,
 				95615272278F3C3400205A0D /* RootView.swift in Sources */,
 				9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */,
 				9561E7D227947D4300205A0D /* FeedPusherView.swift in Sources */,
 				9561E7D427947D7800205A0D /* FeedPusherViewModel.swift in Sources */,
 				9561E7DF27949CF800205A0D /* InterestStateViewModel.swift in Sources */,
+				95E0DEB7279D8AF500ACC9E2 /* ComponentsStatusService.swift in Sources */,
 				9561E7E127949D2100205A0D /* Progress.swift in Sources */,
 				95615C8B278F470300205A0D /* InternetDevices.swift in Sources */,
 				9561706F278F725700205A0D /* DeviceCellViewModel.swift in Sources */,
@@ -425,6 +452,7 @@
 				95E0DEAF279D837500ACC9E2 /* ServiceMenuView.swift in Sources */,
 				95EBD9262798855B00BC4607 /* ActionView.swift in Sources */,
 				9561706A278F6CC400205A0D /* DeviceService.swift in Sources */,
+				95E0DEB9279D8F0600ACC9E2 /* FeedPusherComponentViewModel.swift in Sources */,
 				95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */,
 				9561E7DD27949CC600205A0D /* InterestStateView.swift in Sources */,
 				9561E7D7279482C400205A0D /* FeedPusherService.swift in Sources */,
