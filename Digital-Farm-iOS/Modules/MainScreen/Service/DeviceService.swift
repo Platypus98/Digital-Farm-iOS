@@ -15,17 +15,17 @@ protocol DeviceServiceProtocol {
 final class DeviceService: DeviceServiceProtocol {
     func fetchDevices() -> [InternetDevice] {
         return [
-            .init(id: 1,
+            .init(type: .robotFeedPusher,
                   name: "Робот feed pusher",
                   status: .connected,
                   image: UIImage(named: "robot-feed-pusher") ?? UIImage()
             ),
-            .init(id: 2,
+            .init(type: .unknown,
                   name: "Робот dairy",
                   status: .notСonnected,
                   image: UIImage(named: "cow") ?? UIImage()
             ),
-            .init(id: 3,
+            .init(type: .unknown,
                   name: "Система microclimate",
                   status: .notСonnected,
                   image: UIImage(named: "weather") ?? UIImage()

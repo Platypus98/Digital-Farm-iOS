@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 protocol MainScreenViewModelProtocol: ObservableObject {
     var state: MainScreenViewModel.State { get }
@@ -30,7 +31,17 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     
     // MARK: - MainScreenViewModelProtocol
     func fetchDevices() {
-        state = .loaded(devicesService.fetchDevices())
+        let internetDevices = devicesService.fetchDevices()
+        state = .loaded(internetDevices.map {
+            InternetDeviceViewModel(
+                id: .init(),
+                type: $0.type,
+                name: $0.name,
+                statusText: getStatusText($0.status),
+                statusColor: getStatusColor($0.status),
+                image: $0.image
+            )
+        })
     }
 }
 
@@ -38,7 +49,28 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
 extension MainScreenViewModel {
     enum State {
         case loading
-        case loaded([InternetDevice])
+        case loaded([InternetDeviceViewModel])
         case error(Error)
+    }
+}
+
+// MARK: - Private methods
+private extension MainScreenViewModel {
+    func getStatusText(_ status: InternetDeviceStatus) -> String {
+        switch status {
+        case .connected:
+            return Localized("MainScreen.InternetDevice.Connected")
+        case .notСonnected:
+            return Localized("MainScreen.InternetDevice.NotСonnected")
+        }
+    }
+    
+    func getStatusColor(_ status: InternetDeviceStatus) -> Color {
+        switch status {
+        case .connected:
+            return Color("availableStatus")
+        case .notСonnected:
+            return Color("notAvailableStatus")
+        }
     }
 }

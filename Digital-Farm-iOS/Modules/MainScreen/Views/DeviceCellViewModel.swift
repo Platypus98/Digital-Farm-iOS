@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 
 protocol DeviceCellViewModelProtocol: ObservableObject {
-    var device: InternetDevice { get }
+    var device: InternetDeviceViewModel { get }
 }
 
 final class DeviceCellViewModel: DeviceCellViewModelProtocol {
     
-    let device: InternetDevice
+    let device: InternetDeviceViewModel
     
-    init(device: InternetDevice) {
+    init(device: InternetDeviceViewModel) {
         self.device = device
     }
 }

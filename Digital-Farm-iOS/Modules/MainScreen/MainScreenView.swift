@@ -44,16 +44,12 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
                 ScrollView {
                     LazyVGrid(columns: columns, content: {
                         ForEach(devices) { device in
-                            if device.status == .connected {
-                                NavigationLink(
-                                    destination: FeedPusherView(viewModel: FeedPusherViewModel()),
-                                    label: {
-                                        DeviceCellView(viewModel: DeviceCellViewModel(device: device))
-                                    })
-                                    .buttonStyle(PlainButtonStyle())
-                            } else {
-                                DeviceCellView(viewModel: DeviceCellViewModel(device: device))
-                            }
+                            NavigationLink(
+                                destination: getDestination(device.type),
+                                label: {
+                                    DeviceCellView(viewModel: DeviceCellViewModel(device: device))
+                                })
+                                .buttonStyle(PlainButtonStyle())
                         }
                     })
                 }.padding(.horizontal, 10)
@@ -62,6 +58,20 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
     }
 }
 
+// MARK: - Private methods
+
+private extension MainScreenView {
+    func getDestination(_ type: InternetDeviceType) -> some View {
+        switch type {
+        case .robotFeedPusher:
+            return AnyView(FeedPusherView(viewModel: FeedPusherViewModel()))
+        case .unknown:
+            return AnyView(ProgressView())
+        }
+    }
+}
+
+// MARK: - Appearance
 private extension MainScreenView {
     struct Appearance {
         let title = Localized("MainScreen.Title")

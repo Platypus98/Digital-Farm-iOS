@@ -19,22 +19,13 @@ struct DeviceCellView<ViewModel: DeviceCellViewModelProtocol>: View {
             Spacer(minLength: 20)
             Text(viewModel.device.name)
             Spacer(minLength: 5)
-            Text(viewModel.device.status.textValue)
-                .foregroundColor(subtitleColor)
+            Text(viewModel.device.statusText)
+                .foregroundColor(viewModel.device.statusColor)
         })
         .frame(maxWidth: .infinity, idealHeight: 120, alignment: .leading)
         .padding(.all, CGFloat(13))
         .background(appearance.backgroundColor)
         .cornerRadius(17)
-    }
-    
-    private var subtitleColor: Color {
-        switch viewModel.device.status {
-        case .connected:
-            return appearance.connectedColor
-        case .notСonnected:
-            return appearance.notConnectedColor
-        }
     }
 }
 
@@ -43,7 +34,5 @@ struct DeviceCellView<ViewModel: DeviceCellViewModelProtocol>: View {
 private extension DeviceCellView {
     struct Appearance {
         let backgroundColor = Color("sand")
-        let connectedColor = Color("availableStatus")
-        let notConnectedColor = Color("notAvailableStatus")
     }
 }

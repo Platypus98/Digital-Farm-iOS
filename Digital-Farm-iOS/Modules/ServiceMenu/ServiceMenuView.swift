@@ -36,9 +36,22 @@ struct ServiceMenuView<ViewModel: ServiceMenuViewModelProtocol>: View {
             return AnyView(
                 VStack(alignment: .leading){
                     ForEach(componentsStatus) { component in
-                        Text(component.name)
+                        VStack {
+                            HStack {
+                                Text(component.name)
+                                Spacer()
+                                Circle()
+                                    .fill(component.statusColor)
+                                    .frame(width: 16, height: 16)
+                            }
+                            .padding(.bottom, 10)
+                            Divider()
+                        }
+                        .padding(.trailing, 10)
                     }
+                    Spacer()
                 }
+                    .padding(13)
             )
         }
     }
