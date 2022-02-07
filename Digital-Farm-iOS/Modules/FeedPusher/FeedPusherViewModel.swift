@@ -47,7 +47,16 @@ final class FeedPusherViewModel: FeedPusherViewModelProtocol {
     
     // MARK: - FeedPusherViewModelProtocol
     func fetchFeedPusher() {
-        state = .loaded(feedPusherService.fetchInfo())
+        let feedPusher = feedPusherService.fetchInfo()
+        state = .loaded(
+            FeedPusherVisualModel(
+                statusText: getStatusText(feedPusher.status),
+                statusColor: getStatusColor(feedPusher.status),
+                chargeLevel: feedPusher.chargeLevel,
+                stockLevel: feedPusher.stockLevel,
+                dispenserPerformance: feedPusher.dispenserPerformance
+            )
+        )
     }
 }
 
@@ -55,7 +64,28 @@ final class FeedPusherViewModel: FeedPusherViewModelProtocol {
 extension FeedPusherViewModel {
     enum State {
         case loading
-        case loaded(FeedPusher)
+        case loaded(FeedPusherVisualModel)
         case error(Error)
+    }
+}
+
+// MARK: - Private methods
+private extension FeedPusherViewModel {
+    func getStatusColor(_ status: FeedPusherStatus) -> Color {
+        switch status {
+        case .waiting:
+            return Color("waitingStatus")
+        case .inWork:
+            return Color("inWorkStatus")
+        }
+    }
+    
+    func getStatusText(_ status: FeedPusherStatus) -> String {
+        switch status {
+        case .waiting:
+            return Localized("FeedPusher.Status.Waiting")
+        case .inWork:
+            return Localized("FeedPusher.Status.InWork")
+        }
     }
 }

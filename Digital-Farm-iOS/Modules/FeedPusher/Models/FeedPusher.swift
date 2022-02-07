@@ -17,13 +17,4 @@ struct FeedPusher {
 enum FeedPusherStatus {
     case waiting
     case inWork
-    
-    var textValue: String {
-        switch self {
-        case .waiting:
-            return Localized("FeedPusher.Status.Waiting")
-        case .inWork:
-            return Localized("FeedPusher.Status.InWork")
-        }
-    }
 }

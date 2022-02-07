@@ -38,9 +38,9 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
                 VStack {
                     ScrollView {
                             VStack(alignment: .leading) {
-                                Text(feedPusher.status.textValue)
+                                Text(feedPusher.statusText)
                                     .font(.system(size: 25, weight: .medium, design: .default))
-                                    .foregroundColor(statusColor(feedPusher.status))
+                                    .foregroundColor(feedPusher.statusColor)
                                 
                                 Spacer(minLength: 20)
                                 Group {
@@ -161,15 +161,6 @@ private extension FeedPusherView {
             return AnyView(ProgressView())
         }
     }
-    
-    private func statusColor(_ status: FeedPusherStatus) -> Color {
-        switch status {
-        case .waiting:
-            return appearance.waitingColor
-        case .inWork:
-            return appearance.inWorkColor
-        }
-    }
 }
 
 // MARK: - Appearance
@@ -182,7 +173,5 @@ private extension FeedPusherView {
         let dispenserPerformance = Localized("FeedPusher.DispenserPerformance.Title")
         let startTitle = Localized("FeedPusher.Start.Title")
         let returnTitle = Localized("FeedPusher.Return.Title")
-        let waitingColor = Color("waitingStatus")
-        let inWorkColor = Color("inWorkStatus")
     }
 }

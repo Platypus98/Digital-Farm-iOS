@@ -33,7 +33,7 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     func fetchDevices() {
         let internetDevices = devicesService.fetchDevices()
         state = .loaded(internetDevices.map {
-            InternetDeviceViewModel(
+            InternetDeviceVisualModel(
                 id: .init(),
                 type: $0.type,
                 name: $0.name,
@@ -49,7 +49,7 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
 extension MainScreenViewModel {
     enum State {
         case loading
-        case loaded([InternetDeviceViewModel])
+        case loaded([InternetDeviceVisualModel])
         case error(Error)
     }
 }

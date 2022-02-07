@@ -1,5 +1,5 @@
 //
-//  InternetDeviceViewModel.swift
+//  InternetDeviceVisualModel.swift
 //  Digital-Farm-iOS
 //
 //  Created by Илья Голышков on 24.01.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct InternetDeviceViewModel: Identifiable {
+struct InternetDeviceVisualModel: Identifiable {
     var id: UUID
     var type: InternetDeviceType
     var name: String
