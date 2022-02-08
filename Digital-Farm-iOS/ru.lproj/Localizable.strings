@@ -21,8 +21,12 @@
 "FeedPusher.Schedule.Title" = "График работы";
 "FeedPusher.ServiceMenu.Title" = "Сервисное меню";
 "FeedPusher.Analytics.Title" = "Аналитика";
+"FeedPusher.RemoteControl.Title" = "Пульт";
 "FeedPusher.Start.Title" = "Запуск";
 "FeedPusher.Return.Title" = "Возврат";
 
 // MARK: - FeedPusher.ServiceMenu
 "FeedPusher.ServiceMenu.Title" = "Сервисное меню";
+
+// MARK: - FeedPusher.RemoteControl
+"FeedPusher.RemoteControl.Title" = "Пульт";

@@ -12,6 +12,7 @@ enum ActionType {
     case schedule
     case serviceMenu
     case analytics
+    case remoteControl
 }
 
 struct FeedPusherAction: Identifiable {

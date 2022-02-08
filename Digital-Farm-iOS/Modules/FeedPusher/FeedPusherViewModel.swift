@@ -33,6 +33,11 @@ final class FeedPusherViewModel: FeedPusherViewModelProtocol {
             id: .analytics,
             title: Localized("FeedPusher.Analytics.Title"),
             iconName: "analytics"
+        ),
+        .init(
+            id: .remoteControl,
+            title: Localized("FeedPusher.RemoteControl.Title"),
+            iconName: "remote-control"
         )
     ]
     

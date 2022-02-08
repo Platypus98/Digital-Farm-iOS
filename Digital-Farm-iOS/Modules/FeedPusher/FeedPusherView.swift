@@ -80,25 +80,6 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
                             }
                         .padding(.all, 13)
                     }
-                    
-                    HStack {
-                        createBaseActionButton(title: appearance.startTitle) {
-                            // TO-DO: Start action
-                        }
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        
-                        createBaseActionButton(title: appearance.returnTitle) {
-                            // TO-DO: Return action
-                        }
-                        .background(Color.white)
-                        .foregroundColor(.red)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.red, lineWidth: 1)
-                        )
-                    }
                 }
             )
         }
@@ -133,24 +114,9 @@ private extension FeedPusherView {
         ) {
             Text(appearance.dispenserPerformance)
         }
+        .tint(.gray)
     }
-    
-    private func createBaseActionButton(
-        title: String,
-        action: @escaping () -> Void
-    ) -> some View {
-        Button(action: {
-            action()
-        }) {
-            Text(title)
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-                .padding(.vertical, 12)
-                .padding(.horizontal, 54)
-                .font(.headline)
-        }
-    }
-    
+
     private func destinationView(actionType: ActionType) -> some View {
         switch actionType {
         case .schedule:
@@ -159,6 +125,8 @@ private extension FeedPusherView {
             return AnyView(ServiceMenuView(viewModel: ServiceMenuViewModel()))
         case .analytics:
             return AnyView(ProgressView())
+        case .remoteControl:
+            return AnyView(RemoteControlView(viewModel: RemoteControlViewModel()))
         }
     }
 }
@@ -171,7 +139,5 @@ private extension FeedPusherView {
         let chargeTitle = Localized("FeedPusher.Charge.Title")
         let stockLevelTitle = Localized("FeedPusher.StockLevel.Title")
         let dispenserPerformance = Localized("FeedPusher.DispenserPerformance.Title")
-        let startTitle = Localized("FeedPusher.Start.Title")
-        let returnTitle = Localized("FeedPusher.Return.Title")
     }
 }

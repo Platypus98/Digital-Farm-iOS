@@ -18,7 +18,7 @@ struct RootView: View {
                 Image("home")
                 Text(appearance.mainTabTitle).foregroundColor(.black)
             }
-        }.accentColor(.black)
+        }//.accentColor(.black)
     }
 }
 

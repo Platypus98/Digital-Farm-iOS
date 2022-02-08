@@ -24,9 +24,11 @@ struct ActionView: View {
                 Spacer(minLength: 13)
                 HStack {
                     Text(title)
+                        .foregroundColor(.black)
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.footnote)
+                        .foregroundColor(.gray)
                 }
                 Spacer(minLength: 20)
                 Divider()
