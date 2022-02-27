@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct FeedPusherComponentViewModel: Identifiable {
+struct FeedPusherComponentVisualModel: Identifiable {
     let id: UUID
     let name: String
     let statusColor: Color

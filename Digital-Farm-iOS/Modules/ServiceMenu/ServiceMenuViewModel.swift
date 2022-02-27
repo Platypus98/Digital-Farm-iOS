@@ -30,7 +30,7 @@ final class ServiceMenuViewModel: ServiceMenuViewModelProtocol {
     func fetchComponentsStatus() {
         let components = componentsStatusService.fetchStatuses()
         state = .loaded(components.map {
-            FeedPusherComponentViewModel(
+            FeedPusherComponentVisualModel(
                 id: .init(),
                 name: $0.name,
                 statusColor: statusColor($0.status)
@@ -43,7 +43,7 @@ final class ServiceMenuViewModel: ServiceMenuViewModelProtocol {
 extension ServiceMenuViewModel {
     enum State {
         case loading
-        case loaded([FeedPusherComponentViewModel])
+        case loaded([FeedPusherComponentVisualModel])
         case error(Error)
     }
 }

@@ -19,23 +19,26 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
     }
     
     var body: some View {
-        HStack {
-            createBaseActionButton(title: appearance.startTitle) {
-                // TO-DO: Start action
+        VStack {
+            Spacer()
+            HStack {
+                createBaseActionButton(title: appearance.startTitle) {
+                    // TO-DO: Start action
+                }
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                
+                createBaseActionButton(title: appearance.returnTitle) {
+                    // TO-DO: Return action
+                }
+                .background(Color.white)
+                .foregroundColor(.red)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.red, lineWidth: 1)
+                )
             }
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            
-            createBaseActionButton(title: appearance.returnTitle) {
-                // TO-DO: Return action
-            }
-            .background(Color.white)
-            .foregroundColor(.red)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.red, lineWidth: 1)
-            )
         }
         .navigationTitle(appearance.title)
     }

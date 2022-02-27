@@ -124,7 +124,7 @@ private extension FeedPusherView {
         case .serviceMenu:
             return AnyView(ServiceMenuView(viewModel: ServiceMenuViewModel()))
         case .analytics:
-            return AnyView(ProgressView())
+            return AnyView(AnalyticsView(viewModel: AnalyticsViewModel()))
         case .remoteControl:
             return AnyView(RemoteControlView(viewModel: RemoteControlViewModel()))
         }

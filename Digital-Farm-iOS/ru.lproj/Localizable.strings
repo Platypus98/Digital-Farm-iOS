@@ -28,5 +28,15 @@
 // MARK: - FeedPusher.ServiceMenu
 "FeedPusher.ServiceMenu.Title" = "Сервисное меню";
 
+// MARK: - FeedPusher.Analytics
+"FeedPusher.Analytics.Title" = "Аналитика";
+"FeedPusher.Analytics.CyclesPerDay.Title" = "Количество циклов в сутки";
+"FeedPusher.Analytics.FeedIssued.Title" = "Выдано количество корма, кг/сутки";
+"FeedPusher.Analytics.EnergyValue.Title" = "Энергетическая ценность";
+"FeedPusher.Analytics.Proteins.Title" = "Белки";
+"FeedPusher.Analytics.Cellulose.Title" = "Клетчатка";
+"FeedPusher.Analytics.Fats.Title" = "Жиры";
+"FeedPusher.Analytics.Carbohydrates.Title" = "Углеводы";
+
 // MARK: - FeedPusher.RemoteControl
 "FeedPusher.RemoteControl.Title" = "Пульт";
