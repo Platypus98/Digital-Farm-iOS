@@ -120,7 +120,7 @@ private extension FeedPusherView {
     private func destinationView(actionType: ActionType) -> some View {
         switch actionType {
         case .schedule:
-            return AnyView(ProgressView())
+            return AnyView(ScheduleView(viewModel: ScheduleViewModel()))
         case .serviceMenu:
             return AnyView(ServiceMenuView(viewModel: ServiceMenuViewModel()))
         case .analytics:

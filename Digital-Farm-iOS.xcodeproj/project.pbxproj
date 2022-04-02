@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		9528754727CBD7CE00281863 /* AnalyticsVisualModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9528754627CBD7CE00281863 /* AnalyticsVisualModel.swift */; };
+		9529093427F8B46200B24C4B /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529093327F8B46200B24C4B /* ScheduleView.swift */; };
+		9529093627F8B47A00B24C4B /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529093527F8B47A00B24C4B /* ScheduleViewModel.swift */; };
+		9529093B27F8B70600B24C4B /* ScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529093A27F8B70600B24C4B /* ScheduleService.swift */; };
+		9529093E27F8B82900B24C4B /* ScheduleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529093D27F8B82900B24C4B /* ScheduleTime.swift */; };
+		9529094027F8B9EC00B24C4B /* ScheduleTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9529093F27F8B9EC00B24C4B /* ScheduleTimeViewModel.swift */; };
 		95615270278F3C3400205A0D /* Digital_Farm_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561526F278F3C3400205A0D /* Digital_Farm_iOSApp.swift */; };
 		95615272278F3C3400205A0D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95615271278F3C3400205A0D /* RootView.swift */; };
 		95615274278F3C3500205A0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95615273278F3C3500205A0D /* Assets.xcassets */; };
@@ -66,6 +71,11 @@
 
 /* Begin PBXFileReference section */
 		9528754627CBD7CE00281863 /* AnalyticsVisualModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsVisualModel.swift; sourceTree = "<group>"; };
+		9529093327F8B46200B24C4B /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		9529093527F8B47A00B24C4B /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		9529093A27F8B70600B24C4B /* ScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
+		9529093D27F8B82900B24C4B /* ScheduleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTime.swift; sourceTree = "<group>"; };
+		9529093F27F8B9EC00B24C4B /* ScheduleTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTimeViewModel.swift; sourceTree = "<group>"; };
 		9561526C278F3C3400205A0D /* Digital-Farm-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digital-Farm-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9561526F278F3C3400205A0D /* Digital_Farm_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_Farm_iOSApp.swift; sourceTree = "<group>"; };
 		95615271278F3C3400205A0D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -136,6 +146,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9529093227F8B39000B24C4B /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				9529093C27F8B80600B24C4B /* Models */,
+				9529093927F8B6F800B24C4B /* Service */,
+				9529093327F8B46200B24C4B /* ScheduleView.swift */,
+				9529093527F8B47A00B24C4B /* ScheduleViewModel.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		9529093927F8B6F800B24C4B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9529093A27F8B70600B24C4B /* ScheduleService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9529093C27F8B80600B24C4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9529093D27F8B82900B24C4B /* ScheduleTime.swift */,
+				9529093F27F8B9EC00B24C4B /* ScheduleTimeViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		95615263278F3C3400205A0D = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +229,7 @@
 		9561529A278F453000205A0D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9529093227F8B39000B24C4B /* Schedule */,
 				959EFC0227B80CB5005ED09F /* Analytics */,
 				95E3256C27B18AF800B5BD55 /* RemoteControl */,
 				95E0DEAD279D832900ACC9E2 /* ServiceMenu */,
@@ -495,10 +534,12 @@
 				95E0DEB5279D89D900ACC9E2 /* FeedPusherComponent.swift in Sources */,
 				95E3256E27B18B3800B5BD55 /* RemoteControlView.swift in Sources */,
 				95615272278F3C3400205A0D /* RootView.swift in Sources */,
+				9529093627F8B47A00B24C4B /* ScheduleViewModel.swift in Sources */,
 				9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */,
 				959EFC0427B80CCD005ED09F /* AnalyticsView.swift in Sources */,
 				9561E7D227947D4300205A0D /* FeedPusherView.swift in Sources */,
 				9561E7D427947D7800205A0D /* FeedPusherViewModel.swift in Sources */,
+				9529093427F8B46200B24C4B /* ScheduleView.swift in Sources */,
 				959EFC0A27B815A2005ED09F /* AnalyticsService.swift in Sources */,
 				9528754727CBD7CE00281863 /* AnalyticsVisualModel.swift in Sources */,
 				9561E7DF27949CF800205A0D /* InterestStateViewModel.swift in Sources */,
@@ -506,6 +547,7 @@
 				9561E7E127949D2100205A0D /* Progress.swift in Sources */,
 				95615C8B278F470300205A0D /* InternetDevice.swift in Sources */,
 				9561706F278F725700205A0D /* DeviceCellViewModel.swift in Sources */,
+				9529094027F8B9EC00B24C4B /* ScheduleTimeViewModel.swift in Sources */,
 				95E0DEB1279D838A00ACC9E2 /* ServiceMenuViewModel.swift in Sources */,
 				95E3257027B18B5300B5BD55 /* RemoteControlViewModel.swift in Sources */,
 				9561E7DA2794831900205A0D /* FeedPusher.swift in Sources */,
@@ -518,8 +560,10 @@
 				95E0DEAF279D837500ACC9E2 /* ServiceMenuView.swift in Sources */,
 				95EBD9262798855B00BC4607 /* ActionView.swift in Sources */,
 				9561706A278F6CC400205A0D /* DeviceService.swift in Sources */,
+				9529093E27F8B82900B24C4B /* ScheduleTime.swift in Sources */,
 				95E0DEB9279D8F0600ACC9E2 /* FeedPusherComponentVisualModel.swift in Sources */,
 				95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */,
+				9529093B27F8B70600B24C4B /* ScheduleService.swift in Sources */,
 				95E3256B27B17C9600B5BD55 /* FeedPusherVisualModel.swift in Sources */,
 				9561E7DD27949CC600205A0D /* InterestStateView.swift in Sources */,
 				9561E7D7279482C400205A0D /* FeedPusherService.swift in Sources */,

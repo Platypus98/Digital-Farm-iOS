@@ -25,6 +25,9 @@
 "FeedPusher.Start.Title" = "Запуск";
 "FeedPusher.Return.Title" = "Возврат";
 
+// MARK: - FeedPusher.Schedule
+"FeedPusher.Schedule.Title" = "График работы";
+
 // MARK: - FeedPusher.ServiceMenu
 "FeedPusher.ServiceMenu.Title" = "Сервисное меню";
 
