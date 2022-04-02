@@ -22,22 +22,50 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
         VStack {
             Spacer()
             HStack {
-                createBaseActionButton(title: appearance.startTitle) {
-                    // TO-DO: Start action
-                }
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(8)
                 
-                createBaseActionButton(title: appearance.returnTitle) {
-                    // TO-DO: Return action
+                VStack {
+                    Button(action: {
+                        print("Top Tapped!")
+                    }) {
+                        Image(uiImage: UIImage(named: "up-arrow")!)
+                    }
+                    HStack(spacing: 90) {
+                        Button(action: {
+                            print("Left Tapped!")
+                        }) {
+                            Image(uiImage: UIImage(named: "left-arrow")!)
+                        }
+                        Button(action: {
+                            print("Rigth Tapped!")
+                        }) {
+                            Image(uiImage: UIImage(named: "right-arrow")!)
+                        }
+                    }
+                    Button(action: {
+                        print("Down Tapped!")
+                    }) {
+                        Image(uiImage: UIImage(named: "down-arrow")!)
+                    }
+                    Spacer()
+                    HStack {
+                        createBaseActionButton(title: appearance.startTitle) {
+                            // TO-DO: Start action
+                        }
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        
+                        createBaseActionButton(title: appearance.returnTitle) {
+                            // TO-DO: Return action
+                        }
+                        .background(Color.white)
+                        .foregroundColor(.red)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.red, lineWidth: 1)
+                        )
+                    }
                 }
-                .background(Color.white)
-                .foregroundColor(.red)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.red, lineWidth: 1)
-                )
             }
         }
         .navigationTitle(appearance.title)
