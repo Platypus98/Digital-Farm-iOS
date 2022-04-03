@@ -36,10 +36,10 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
                 VStack {
                     List {
                         HStack {
-                            Text("Время")
+                            Text(appearance.timeTitle)
                                 .foregroundColor(Color.gray)
                             Spacer()
-                            Text("Доступность")
+                            Text(appearance.availabilityTitle)
                                 .foregroundColor(Color.gray)
                         }
                         ForEach(schedulesTimes, id: \.id) { element in
@@ -65,5 +65,7 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
 private extension ScheduleView {
     struct Appearance {
         let title = Localized("FeedPusher.Schedule.Title")
+        let timeTitle = Localized("FeedPusher.Schedule.Time.Title")
+        let availabilityTitle = Localized("FeedPusher.Schedule.Availability.Title")
     }
 }

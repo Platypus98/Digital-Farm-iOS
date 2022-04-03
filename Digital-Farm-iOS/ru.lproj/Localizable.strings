@@ -27,6 +27,8 @@
 
 // MARK: - FeedPusher.Schedule
 "FeedPusher.Schedule.Title" = "График работы";
+"FeedPusher.Schedule.Time.Title" = "Время";
+"FeedPusher.Schedule.Availability.Title" = "Доступность";
 
 // MARK: - FeedPusher.ServiceMenu
 "FeedPusher.ServiceMenu.Title" = "Сервисное меню";
