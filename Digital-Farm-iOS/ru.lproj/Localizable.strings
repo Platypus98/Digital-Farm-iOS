@@ -8,6 +8,7 @@
 
 // MARK: - MainScreen
 "MainScreen.Title" = "Главная";
+"MainScreen.Info" = "О приложении";
 "MainScreen.InternetDevice.Connected" = "Подключен";
 "MainScreen.InternetDevice.NotСonnected" = "Не подключен";
 
@@ -45,3 +46,6 @@
 
 // MARK: - FeedPusher.RemoteControl
 "FeedPusher.RemoteControl.Title" = "Пульт";
+
+// MARK: - AppSettings
+"AppSettings.Title" = "О приложении";

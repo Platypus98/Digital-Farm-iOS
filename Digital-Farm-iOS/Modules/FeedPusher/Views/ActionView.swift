@@ -18,13 +18,15 @@ struct ActionView: View {
     var body: some View {
         HStack {
             Image(iconName)
+                .renderingMode(.template)
+                .tint(.primary)
                 .padding(.all, 13)
             Spacer(minLength: 13)
             VStack(alignment: .leading) {
                 Spacer(minLength: 13)
                 HStack {
                     Text(title)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.footnote)
