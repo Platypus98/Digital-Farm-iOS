@@ -20,8 +20,8 @@ struct ActionView: View {
             Image(iconName)
                 .renderingMode(.template)
                 .tint(.primary)
-                .padding(.all, 13)
-            Spacer(minLength: 13)
+                .padding(.vertical, 13)
+            Spacer(minLength: 26)
             VStack(alignment: .leading) {
                 Spacer(minLength: 13)
                 HStack {
