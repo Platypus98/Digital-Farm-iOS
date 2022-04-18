@@ -30,6 +30,7 @@
 "FeedPusher.Schedule.Title" = "График работы";
 "FeedPusher.Schedule.Time.Title" = "Время";
 "FeedPusher.Schedule.Availability.Title" = "Доступность";
+"FeedPusher.Schedule.PickTime.Title" = "Выберите время:";
 
 // MARK: - FeedPusher.ServiceMenu
 "FeedPusher.ServiceMenu.Title" = "Сервисное меню";

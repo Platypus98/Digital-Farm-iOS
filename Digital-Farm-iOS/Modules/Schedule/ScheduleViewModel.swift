@@ -11,6 +11,7 @@ import SwiftUI
 protocol ScheduleViewModelProtocol: ObservableObject {
     var state: ScheduleViewModel.State { get }
     func fetchSchedule()
+    func addTime(time: String)
 }
 
 final class ScheduleViewModel: ScheduleViewModelProtocol {
@@ -37,6 +38,17 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
             )
         }
         state = .loaded(viewModel)
+    }
+    
+    func addTime(time: String) {
+        state = .loading
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            self?.scheduleService.addTime(time)
+            sleep(1)
+            DispatchQueue.main.async {
+                self?.fetchSchedule()
+            }
+        }
     }
 }
 

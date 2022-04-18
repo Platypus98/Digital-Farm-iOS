@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ScheduleView<ViewModel: ScheduleViewModel>: View {
     // MARK: - Private properties
+    @State private var newTime = Date()
     @ObservedObject private var viewModel: ViewModel
     private let appearance = Appearance()
     
@@ -54,9 +55,38 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
                             }
                         }
                     }
+                    Spacer()
+                    HStack {
+                        VStack {
+                            Text(appearance.addTimeTitle)
+                            DatePicker("", selection: $newTime, displayedComponents: .hourAndMinute)
+                        }.labelsHidden()
+                        
+                        Button(action: {
+                            viewModel.addTime(time: dateFormatter.string(from: newTime))
+                            newTime = dateFormatter.date(from: "00:00")!
+                        }) {
+                            Image("plus")
+                                .renderingMode(.template)
+                                .frame(width: 50, height: 50)
+                                .tint(Color.white)
+                                .background(Color("addButton"))
+                                .clipShape(Circle())
+                        }
+                    }
+                    .padding(.all, 13)
                 }
             )
         }
+    }
+}
+
+// MARK: - Private
+private extension ScheduleView {
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter
     }
 }
 
@@ -67,5 +97,6 @@ private extension ScheduleView {
         let title = Localized("FeedPusher.Schedule.Title")
         let timeTitle = Localized("FeedPusher.Schedule.Time.Title")
         let availabilityTitle = Localized("FeedPusher.Schedule.Availability.Title")
+        let addTimeTitle = Localized("FeedPusher.Schedule.PickTime.Title")
     }
 }
