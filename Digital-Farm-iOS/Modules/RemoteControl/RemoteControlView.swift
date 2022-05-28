@@ -13,67 +13,139 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
     @ObservedObject private var viewModel: ViewModel
     private let appearance = Appearance()
     
+    @State private var top: String = ""
+    @State private var left: String = ""
+    @State private var right: String = ""
+    @State private var bottom: String = ""
+    
     // MARK: - Init
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
+        UIScrollView.appearance().keyboardDismissMode = .onDrag
     }
     
+    // MARK: - Content
     var body: some View {
-        VStack {
-            Spacer()
-            HStack {
-                
+        content.navigationTitle(appearance.title)
+        .onAppear(perform: {
+            viewModel.connectToServer()
+        })
+    }
+    
+    private var content: some View {
+        switch viewModel.state {
+        case .loading:
+            return AnyView(ProgressView())
+        case .error(let error):
+            return AnyView(
+                Text(error.localizedDescription)
+            )
+        case .loaded:
+            return AnyView(
                 VStack {
-                    Button(action: {
-                        print("Top Tapped!")
-                    }) {
-                        Image(uiImage: UIImage(named: "up-arrow")!)
-                    }
-                    HStack(spacing: 90) {
-                        Button(action: {
-                            print("Left Tapped!")
-                        }) {
-                            Image(uiImage: UIImage(named: "left-arrow")!)
-                        }
-                        Button(action: {
-                            print("Rigth Tapped!")
-                        }) {
-                            Image(uiImage: UIImage(named: "right-arrow")!)
-                        }
-                    }
-                    Button(action: {
-                        print("Down Tapped!")
-                    }) {
-                        Image(uiImage: UIImage(named: "down-arrow")!)
-                    }
                     Spacer()
                     HStack {
-                        createBaseActionButton(title: appearance.startTitle) {
-                            // TO-DO: Start action
+                        VStack {
+                            ScrollView {
+                                VStack(alignment: .center) {
+                                    createMainButton("Вперед") {
+                                        viewModel.sendToServer(command: "DF:" + top + ":")
+                                        top = ""
+                                    }
+                                    TextField("Вперед", text: $top) { UIApplication.shared.endEditing() }
+                                    .frame(width: 50, height: 50)
+                                    .keyboardType(.numberPad)
+                                    .padding(10)
+                                }
+                                
+                                HStack(spacing: 90) {
+                                    VStack(alignment: .center) {
+                                        createMainButton("Влево") {
+                                            viewModel.sendToServer(command: "DL:" + left + ":")
+                                            left = ""
+                                        }
+                                        TextField("Влево", text: $left) { UIApplication.shared.endEditing() }
+                                        .frame(width: 50, height: 50)
+                                        .keyboardType(.numberPad)
+                                        .padding(10)
+                                    }
+                                    
+                                    VStack(alignment: .center) {
+                                        createMainButton("Вправо") {
+                                            viewModel.sendToServer(command: "DR:" + right + ":")
+                                            right = ""
+                                        }
+                                        TextField("Вправо", text: $right) { UIApplication.shared.endEditing() }
+                                        .frame(width: 50, height: 50)
+                                        .keyboardType(.numberPad)
+                                        .padding(10)
+                                    }
+                                }
+                                
+                                VStack(alignment: .center) {
+                                    createMainButton("Назад") {
+                                       viewModel.sendToServer(command: "DB:" + bottom + ":")
+                                        bottom = ""
+                                   }
+                                    TextField("Назад", text: $bottom) { UIApplication.shared.endEditing() }
+                                    .frame(width: 50, height: 50)
+                                    .keyboardType(.numberPad)
+                                    .padding(10)
+                                }
+                                Spacer(minLength: 10)
+                                VStack {
+                                    Text("Дополнительные функции")
+                                    HStack {
+                                        createMainButton("Ф1") {
+                                            viewModel.sendToServer(command: "F1:")
+                                        }
+                                        createMainButton("Ф2") {
+                                            viewModel.sendToServer(command: "F2:")
+                                        }
+                                        createMainButton("Ф3") {
+                                            viewModel.sendToServer(command: "F3:")
+                                        }
+                                        createMainButton("Ф4") {
+                                            viewModel.sendToServer(command: "F4:")
+                                        }
+                                    }
+                                }
+                                Spacer(minLength: 100)
+                                HStack {
+                                    createBaseActionButton(title: appearance.startTitle) {
+                                        // TO-DO: Start action
+                                    }
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(8)
+                                    
+                                    createBaseActionButton(title: appearance.returnTitle) {
+                                        // TO-DO: Return action
+                                    }
+                                    .background(Color.white)
+                                    .foregroundColor(.red)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(Color.red, lineWidth: 1)
+                                    )
+                                }
+                            }
                         }
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                        
-                        createBaseActionButton(title: appearance.returnTitle) {
-                            // TO-DO: Return action
-                        }
-                        .background(Color.white)
-                        .foregroundColor(.red)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.red, lineWidth: 1)
-                        )
                     }
                 }
-            }
+            )
         }
-        .navigationTitle(appearance.title)
     }
 }
 
 // MARK: - Private extension
 private extension RemoteControlView {
+    func createMainButton(_ title: String, action: @escaping () -> Void = {}) -> some View {
+        Button(action: action) {
+            Text(title)
+        }.buttonStyle(.borderedProminent)
+    }
+    
     func createBaseActionButton(
         title: String,
         action: @escaping () -> Void

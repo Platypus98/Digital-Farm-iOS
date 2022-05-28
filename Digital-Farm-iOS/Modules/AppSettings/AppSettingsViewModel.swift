@@ -10,6 +10,7 @@ import Foundation
 protocol AppSettingsViewModelProtocol: ObservableObject {
     var state: AppSettingsViewModel.State { get }
     func fetchSettings()
+    func saveIPAndPort(ip: String, port: String)
 }
 
 final class AppSettingsViewModel: AppSettingsViewModelProtocol {
@@ -26,6 +27,11 @@ final class AppSettingsViewModel: AppSettingsViewModelProtocol {
                 text: "О приложении \n \(Bundle.main.releaseVersionNumber!), \(Bundle.main.buildVersionNumber!)"
             )
         )
+    }
+    
+    func saveIPAndPort(ip: String, port: String) {
+        UserDefaults.standard.set(ip, forKey: "IP")
+        UserDefaults.standard.set(Int32(port), forKey: "Port")
     }
 }
 
