@@ -8,8 +8,8 @@
 import Foundation
 
 protocol ScheduleServiceProtocol {
-    func fetchSchedules() -> [ScheduleTime]
-    func addTime(_ time: String)
+    func fetchSchedules(_ completion: @escaping ([ScheduleTime])->())
+    func addTime(_ time: String, _ completion: @escaping ()->())
 }
 
 final class ScheduleService: ScheduleServiceProtocol {
@@ -21,11 +21,12 @@ final class ScheduleService: ScheduleServiceProtocol {
         .init(time: "21:00", isEnabled: true)
     ]
     
-    func fetchSchedules() -> [ScheduleTime] {
-        return dataStore
+    func fetchSchedules(_ completion: @escaping ([ScheduleTime])->() = { _ in }) {
+        completion(dataStore)
     }
     
-    func addTime(_ time: String) {
+    func addTime(_ time: String, _ completion: @escaping ()->() = { }) {
         dataStore.append(.init(time: time, isEnabled: false))
+        completion()
     }
 }

@@ -28,26 +28,23 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
     }
     
     func fetchSchedule() {
-        let components = scheduleService.fetchSchedules()
-        
-        let viewModel = components.map {
-            ScheduleTimeViewModel(
-                id: UUID(),
-                time: $0.time,
-                isEnabled: $0.isEnabled
-            )
+        state = .loading
+        scheduleService.fetchSchedules { [weak self] schedule in
+            let viewModel = schedule.map {
+                ScheduleTimeViewModel(
+                    id: UUID(),
+                    time: $0.time,
+                    isEnabled: $0.isEnabled
+                )
+            }
+            self?.state = .loaded(viewModel)
         }
-        state = .loaded(viewModel)
     }
     
     func addTime(time: String) {
         state = .loading
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.scheduleService.addTime(time)
-            sleep(1)
-            DispatchQueue.main.async {
-                self?.fetchSchedule()
-            }
+        scheduleService.addTime(time) { [weak self] in
+            self?.fetchSchedule()
         }
     }
 }
