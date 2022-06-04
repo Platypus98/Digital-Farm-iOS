@@ -50,7 +50,6 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
                                 VStack(alignment: .center) {
                                     createMainButton("Вперед") {
                                         viewModel.sendToServer(command: "DF:" + top + ":")
-                                        top = ""
                                     }
                                     TextField("Вперед", text: $top) { UIApplication.shared.endEditing() }
                                     .frame(width: 50, height: 50)
@@ -62,7 +61,6 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
                                     VStack(alignment: .center) {
                                         createMainButton("Влево") {
                                             viewModel.sendToServer(command: "DL:" + left + ":")
-                                            left = ""
                                         }
                                         TextField("Влево", text: $left) { UIApplication.shared.endEditing() }
                                         .frame(width: 50, height: 50)
@@ -73,7 +71,6 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
                                     VStack(alignment: .center) {
                                         createMainButton("Вправо") {
                                             viewModel.sendToServer(command: "DR:" + right + ":")
-                                            right = ""
                                         }
                                         TextField("Вправо", text: $right) { UIApplication.shared.endEditing() }
                                         .frame(width: 50, height: 50)
@@ -85,7 +82,6 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
                                 VStack(alignment: .center) {
                                     createMainButton("Назад") {
                                        viewModel.sendToServer(command: "DB:" + bottom + ":")
-                                        bottom = ""
                                    }
                                     TextField("Назад", text: $bottom) { UIApplication.shared.endEditing() }
                                     .frame(width: 50, height: 50)

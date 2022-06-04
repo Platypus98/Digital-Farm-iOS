@@ -13,7 +13,7 @@ struct AppSettingsView<ViewModel: AppSettingsViewModel>: View {
     @ObservedObject private var viewModel: ViewModel
     private let appearance = Appearance()
     @State private var ip: String = UserDefaults.standard.object(forKey: "IP") as? String ?? ""
-    @State private var port: String = UserDefaults.standard.object(forKey: "Port") as? String ?? ""
+    @State private var port: String = String(UserDefaults.standard.object(forKey: "Port") as? Int32 ?? 0)
     
     // MARK: - Init
     init(viewModel: ViewModel) {
