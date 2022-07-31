@@ -42,7 +42,7 @@ final class RemoteControlViewModel: RemoteControlViewModelProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.state = .error(error)
+                    self.state = .loaded
                 }
             }
         }
