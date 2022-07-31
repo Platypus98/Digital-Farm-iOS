@@ -47,6 +47,7 @@
 		959EFC0A27B815A2005ED09F /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0927B815A2005ED09F /* AnalyticsService.swift */; };
 		959EFC0C27B815D2005ED09F /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0B27B815D2005ED09F /* Analytics.swift */; };
 		95E0386B279F178100ACC9E2 /* InternetDeviceVisualModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0386A279F178100ACC9E2 /* InternetDeviceVisualModel.swift */; };
+		95E03A50285CE5C600A010BD /* ScalableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E03A4F285CE5C600A010BD /* ScalableText.swift */; };
 		95E0DEAF279D837500ACC9E2 /* ServiceMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */; };
 		95E0DEB1279D838A00ACC9E2 /* ServiceMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */; };
 		95E0DEB5279D89D900ACC9E2 /* FeedPusherComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0DEB4279D89D900ACC9E2 /* FeedPusherComponent.swift */; };
@@ -127,6 +128,7 @@
 		959EFC0927B815A2005ED09F /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		959EFC0B27B815D2005ED09F /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		95E0386A279F178100ACC9E2 /* InternetDeviceVisualModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetDeviceVisualModel.swift; sourceTree = "<group>"; };
+		95E03A4F285CE5C600A010BD /* ScalableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalableText.swift; sourceTree = "<group>"; };
 		95E0DEAE279D837500ACC9E2 /* ServiceMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuView.swift; sourceTree = "<group>"; };
 		95E0DEB0279D838A00ACC9E2 /* ServiceMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceMenuViewModel.swift; sourceTree = "<group>"; };
 		95E0DEB4279D89D900ACC9E2 /* FeedPusherComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherComponent.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 		95617065278F696E00205A0D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				95E03A4E285CE5A500A010BD /* Views */,
 				95617066278F697800205A0D /* Localized.swift */,
 				9544860E2808B3AA007FF3EC /* Bundle+Extension.swift */,
 				956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */,
@@ -424,6 +427,14 @@
 				9528754627CBD7CE00281863 /* AnalyticsVisualModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		95E03A4E285CE5A500A010BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95E03A4F285CE5C600A010BD /* ScalableText.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		95E0DEAD279D832900ACC9E2 /* ServiceMenu */ = {
@@ -711,6 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E0DEB5279D89D900ACC9E2 /* FeedPusherComponent.swift in Sources */,
+				95E03A50285CE5C600A010BD /* ScalableText.swift in Sources */,
 				9544860F2808B3AA007FF3EC /* Bundle+Extension.swift in Sources */,
 				95E3256E27B18B3800B5BD55 /* RemoteControlView.swift in Sources */,
 				95615272278F3C3400205A0D /* RootView.swift in Sources */,
@@ -922,7 +934,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital-Farm-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = L75X824A8X;
 				ENABLE_PREVIEWS = YES;
@@ -932,7 +944,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vim.Digital-Farm-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -947,7 +959,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital-Farm-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = L75X824A8X;
 				ENABLE_PREVIEWS = YES;
@@ -957,7 +969,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vim.Digital-Farm-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
