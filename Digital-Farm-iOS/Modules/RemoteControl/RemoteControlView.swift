@@ -359,7 +359,11 @@ private extension RemoteControlView {
                     
                     // Сброс
                     VStack {
-                        Image("remove")
+                        Button {
+                            print("close")
+                        } label: {
+                            Image("remove")
+                        }
                     }
                     
                     // Поворт назад
@@ -392,49 +396,7 @@ private extension RemoteControlView {
                     }
                 }
             }
-//
-//
-//            VStack(alignment: .center) {
-//                createMainButton("Вперед") {
-//                    viewModel.sendToServer(command: "DF:" + top + ":")
-//                }
-//                TextField("Вперед", text: $top) { UIApplication.shared.endEditing() }
-//                .frame(width: 70, height: 50)
-//                .keyboardType(.numberPad)
-//                .padding(10)
-//            }
-//
-//            HStack(spacing: 90) {
-//                VStack(alignment: .center) {
-//                    createMainButton("Влево") {
-//                        viewModel.sendToServer(command: "DL:" + left + ":")
-//                    }
-//                    TextField("Влево", text: $left) { UIApplication.shared.endEditing() }
-//                    .frame(width: 70, height: 50)
-//                    .keyboardType(.numberPad)
-//                    .padding(10)
-//                }
-//
-//                VStack(alignment: .center) {
-//                    createMainButton("Вправо") {
-//                        viewModel.sendToServer(command: "DR:" + right + ":")
-//                    }
-//                    TextField("Вправо", text: $right) { UIApplication.shared.endEditing() }
-//                    .frame(width: 70, height: 50)
-//                    .keyboardType(.numberPad)
-//                    .padding(10)
-//                }
-//            }
-//
-//            VStack(alignment: .center) {
-//                createMainButton("Назад") {
-//                    viewModel.sendToServer(command: "DB:" + bottom + ":")
-//                }
-//                TextField("Назад", text: $bottom) { UIApplication.shared.endEditing() }
-//                .frame(width: 70, height: 50)
-//                .keyboardType(.numberPad)
-//                .padding(10)
-//            }
+            
             Spacer(minLength: 10)
             VStack {
                 Text("Дополнительные функции")
