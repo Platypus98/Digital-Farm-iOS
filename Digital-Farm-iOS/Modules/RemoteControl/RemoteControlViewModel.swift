@@ -32,8 +32,6 @@ final class RemoteControlViewModel: RemoteControlViewModelProtocol {
 
     // MARK: - Debug
     func connectToServer() {
-        // DEGUB
-        state = .loaded
         DispatchQueue.global().async {
             switch self.client.connect(timeout: 5) {
             case .success:
@@ -42,7 +40,7 @@ final class RemoteControlViewModel: RemoteControlViewModelProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.state = .loaded
+                    self.state = .error(error)
                 }
             }
         }

@@ -42,6 +42,7 @@
 		9561E7E127949D2100205A0D /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E027949D2100205A0D /* Progress.swift */; };
 		9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E22794A06300205A0D /* ProgressBar.swift */; };
 		956DCBBC280C3BA700E40DF9 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */; };
+		9597F59B28A7C2080053BE02 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9597F59A28A7C2080053BE02 /* String+Extension.swift */; };
 		959EFC0427B80CCD005ED09F /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0327B80CCD005ED09F /* AnalyticsView.swift */; };
 		959EFC0627B80CE1005ED09F /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0527B80CE1005ED09F /* AnalyticsViewModel.swift */; };
 		959EFC0A27B815A2005ED09F /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0927B815A2005ED09F /* AnalyticsService.swift */; };
@@ -123,6 +124,7 @@
 		9561E7E027949D2100205A0D /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		9561E7E22794A06300205A0D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		9597F59A28A7C2080053BE02 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		959EFC0327B80CCD005ED09F /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		959EFC0527B80CE1005ED09F /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		959EFC0927B815A2005ED09F /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 		95E0DEB6279D8AF500ACC9E2 /* ComponentsStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsStatusService.swift; sourceTree = "<group>"; };
 		95E0DEB8279D8F0600ACC9E2 /* FeedPusherComponentVisualModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherComponentVisualModel.swift; sourceTree = "<group>"; };
 		95E3256A27B17C9600B5BD55 /* FeedPusherVisualModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherVisualModel.swift; sourceTree = "<group>"; };
-		95E3256D27B18B3800B5BD55 /* RemoteControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlView.swift; sourceTree = "<group>"; };
+		95E3256D27B18B3800B5BD55 /* RemoteControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		95E3256F27B18B5300B5BD55 /* RemoteControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlViewModel.swift; sourceTree = "<group>"; };
 		95EBD9232798797D00BC4607 /* FeedPusherAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPusherAction.swift; sourceTree = "<group>"; };
 		95EBD9252798855B00BC4607 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		95617065278F696E00205A0D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9597F59A28A7C2080053BE02 /* String+Extension.swift */,
 				95E03A4E285CE5A500A010BD /* Views */,
 				95617066278F697800205A0D /* Localized.swift */,
 				9544860E2808B3AA007FF3EC /* Bundle+Extension.swift */,
@@ -749,6 +752,7 @@
 				95E0386B279F178100ACC9E2 /* InternetDeviceVisualModel.swift in Sources */,
 				95615C88278F460500205A0D /* MainScreenViewModel.swift in Sources */,
 				959EFC0C27B815D2005ED09F /* Analytics.swift in Sources */,
+				9597F59B28A7C2080053BE02 /* String+Extension.swift in Sources */,
 				9561706C278F71FA00205A0D /* DeviceCellView.swift in Sources */,
 				95615C85278F45C000205A0D /* MainScreenView.swift in Sources */,
 				95615270278F3C3400205A0D /* Digital_Farm_iOSApp.swift in Sources */,
@@ -934,7 +938,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital-Farm-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = L75X824A8X;
 				ENABLE_PREVIEWS = YES;
@@ -944,7 +948,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vim.Digital-Farm-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -959,7 +963,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital-Farm-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = L75X824A8X;
 				ENABLE_PREVIEWS = YES;
@@ -969,7 +973,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vim.Digital-Farm-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

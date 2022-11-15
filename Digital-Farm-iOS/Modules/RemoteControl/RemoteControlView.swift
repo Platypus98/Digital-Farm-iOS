@@ -70,231 +70,13 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
                     ScrollView {
                         HStack(alignment: .center) {
                             createMotionControlView()
-
-                            Spacer(minLength: 50)
-                            
                             
                             Divider()
                             
-                            
-                            
-                            // Дополнительное меню
-                            VStack {
-//                                HStack {
-//                                    Button(action: {
-//                                        let step: String
-//                                        if leftAddition.count > 4 {
-//                                            step = String(leftAddition.prefix(4))
-//                                        } else {
-//                                            step = String(repeating: "0", count: 4 - leftAddition.count) + leftAddition
-//                                        }
-//                                        viewModel.sendToServer(command: "+WL" +
-//                                                               (leftClockwise ? ">" : "<") +
-//                                                               (leftLoop ? ":L000:" : ":\(step):")
-//                                        )
-//                                    }) {
-//                                        Text("Left")
-//                                            .frame(width: 100, alignment: .center)
-//                                    }
-//                                    .padding()
-//                                    .foregroundColor(.white)
-//                                    .background(Color.blue)
-//                                    .cornerRadius(8)
-//
-//                                    HStack {
-//                                        ScalableText("STEP:")
-//                                        TextField("0-100", text: $leftAddition) { UIApplication.shared.endEditing() }
-//                                        .frame(width: 50, height: 50)
-//                                        .keyboardType(.numberPad)
-//                                    }
-//                                    .padding()
-//
-//                                    VStack {
-//                                        ScalableText("LOOP:")
-//                                        Toggle("Loop:", isOn: $leftLoop)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//
-//                                    VStack {
-//                                        ScalableText("CLOCKWISE:")
-//                                        Toggle("", isOn: $leftClockwise)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//                                }
-//                                .padding()
-                                
-//                                HStack {
-//                                    Button(action: {
-//                                        let step: String
-//                                        if rightAddition.count > 4 {
-//                                            step = String(rightAddition.prefix(4))
-//                                        } else {
-//                                            step = String(repeating: "0", count: 4 - rightAddition.count) + rightAddition
-//                                        }
-//                                        viewModel.sendToServer(command: "+WR" +
-//                                                               (rightClockwise ? ">" : "<") +
-//                                                               (rightLoop ? ":L000:" : ":\(step):")
-//                                        )
-//                                    }) {
-//                                        Text("Right")
-//                                            .frame(width: 100, alignment: .center)
-//                                    }
-//                                    .padding()
-//                                    .foregroundColor(.white)
-//                                    .background(Color.blue)
-//                                    .cornerRadius(8)
-//                                    HStack {
-//                                        ScalableText("STEP:")
-//                                        TextField("0-100", text: $rightAddition) { UIApplication.shared.endEditing() }
-//                                        .frame(width: 50, height: 50)
-//                                        .keyboardType(.numberPad)
-//                                    }
-//                                    .padding()
-//                                    VStack {
-//                                        ScalableText("LOOP:")
-//                                        Toggle("", isOn: $rightLoop)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//                                    VStack {
-//                                        ScalableText("CLOCKWISE:")
-//                                        Toggle("", isOn: $rightClockwise)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//                                }
-//                                .padding()
-                                
-//                                HStack {
-//                                    Button(action: {
-//                                        let step: String
-//                                        if screwAddition.count > 4 {
-//                                            step = String(screwAddition.prefix(4))
-//                                        } else {
-//                                            step = String(repeating: "0", count: 4 - screwAddition.count) + screwAddition
-//                                        }
-//                                        viewModel.sendToServer(command: "+S0" +
-//                                                               (screwClockwise ? ">" : "<") +
-//                                                               (screwLoop ? ":L000:" : ":\(step):")
-//                                        )
-//                                    }) {
-//                                        Text("Screw")
-//                                            .frame(width: 100, alignment: .center)
-//                                    }
-//                                    .padding()
-//                                    .foregroundColor(.white)
-//                                    .background(Color.blue)
-//                                    .cornerRadius(8)
-//                                    HStack {
-//                                        ScalableText("STEP:")
-//                                        TextField("0-100", text: $screwAddition) { UIApplication.shared.endEditing() }
-//                                        .frame(width: 50, height: 50)
-//                                        .keyboardType(.numberPad)
-//                                    }
-//                                    .padding()
-//                                    VStack {
-//                                        ScalableText("LOOP:")
-//                                        Toggle("LOOP:", isOn: $screwLoop)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//
-//                                    VStack {
-//                                        ScalableText("CLOCKWISE:")
-//                                        Toggle("", isOn: $screwClockwise)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//                                }
-//                                .padding()
-                                
-//                                HStack {
-//                                    Button(action: {
-//                                        let step: String
-//                                        if batcherAddition.count > 4 {
-//                                            step = String(batcherAddition.prefix(4))
-//                                        } else {
-//                                            step = String(repeating: "0", count: 4 - batcherAddition.count) + batcherAddition
-//                                        }
-//                                        viewModel.sendToServer(command: "+B0" +
-//                                                               (batcherClockwise ? ">" : "<") +
-//                                                               (batcherLoop ? ":L000:" : ":\(step):")
-//                                        )
-//                                    }) {
-//                                        Text("Batcher")
-//                                            .frame(width: 100, alignment: .center)
-//                                    }
-//                                    .padding()
-//                                    .foregroundColor(.white)
-//                                    .background(Color.blue)
-//                                    .cornerRadius(8)
-//                                    HStack {
-//                                        ScalableText("STEP:")
-//                                        TextField("0-100", text: $batcherAddition) { UIApplication.shared.endEditing() }
-//                                        .frame(width: 50, height: 50)
-//                                        .keyboardType(.numberPad)
-//                                    }
-//                                    .padding()
-//                                    VStack {
-//                                        ScalableText("LOOP:")
-//                                        Toggle("LOOP:", isOn: $batcherLoop)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//
-//                                    VStack {
-//                                        ScalableText("CLOCKWISE:")
-//                                        Toggle("", isOn: $batcherClockwise)
-//                                            .labelsHidden()
-//                                    }
-//                                    .padding()
-//                                }
-//                                .padding()
-                                
-                                
-//                                HStack {
-//                                    InterestStateView(
-//                                        viewModel: InterestStateViewModel(
-//                                            progress: .init(
-//                                                title: "Battery",
-//                                                percent: 25
-//                                            )
-//                                        )
-//                                    )
-//                                    .frame(maxWidth: .infinity, alignment: .leading)
-//
-//                                    VStack {
-//                                        HStack {
-//                                            Rectangle()
-//                                                .fill(.green)
-//                                                .frame(width: 20, height: 20)
-//                                            Text("Sensor 1")
-//                                        }
-//
-//                                        HStack {
-//                                            Rectangle()
-//                                                .fill(.green)
-//                                                .frame(width: 20, height: 20)
-//                                            Text("Sensor 2")
-//                                        }
-//
-//                                        HStack {
-//                                            Rectangle()
-//                                                .fill(.red)
-//                                                .frame(width: 20, height: 20)
-//                                            Text("Sensor 3")
-//                                        }
-//                                    }
-//                                }
-//
-//                                .padding()
-                            }
+                            createAdditionalControlView()
                         }
                     }
                     
-
                     // Spacer(minLength: 100)
                     HStack {
                         createBaseActionButton(title: appearance.startTitle) {
@@ -331,19 +113,25 @@ private extension RemoteControlView {
                     // Поворт лево-вперед
                     HStack {
                         TextField("-", text: $topLeft) { UIApplication.shared.endEditing() }
-                        .frame(width: 35)
+                        .frame(width: 45)
+                        .multilineTextAlignment(.center)
                         .keyboardType(.numberPad)
                         .padding()
-                        createMainButton(-135)
+                        MotionControlButton(-135) {
+                            viewModel.sendToServer(command: "=DL>:\(topLeft.convertToComand()):")
+                        }
                     }
                     
                     // Поворт лево-назад
                     HStack {
                         TextField("-", text: $bottomLeft) { UIApplication.shared.endEditing() }
-                        .frame(width: 35)
+                        .frame(width: 45)
+                        .multilineTextAlignment(.center)
                         .keyboardType(.numberPad)
                         .padding()
-                        createMainButton(135)
+                        MotionControlButton(135) {
+                            viewModel.sendToServer(command: "=DL<:\(bottomLeft.convertToComand()):")
+                        }
                     }
                 }
                 
@@ -351,10 +139,13 @@ private extension RemoteControlView {
                     // Поворт вперед
                     VStack {
                         TextField("-", text: $top) { UIApplication.shared.endEditing() }
-                        .frame(width: 35)
+                        .frame(width: 45)
+                        .multilineTextAlignment(.center)
                         .keyboardType(.numberPad)
                         .padding()
-                        createMainButton(-90)
+                        MotionControlButton(-90) {
+                            viewModel.sendToServer(command: "=DF0:\(top.convertToComand()):")
+                        }
                     }
                     
                     // Сброс
@@ -368,9 +159,12 @@ private extension RemoteControlView {
                     
                     // Поворт назад
                     VStack {
-                        createMainButton(90)
+                        MotionControlButton(90) {
+                            viewModel.sendToServer(command: "=DB0:\(bottom.convertToComand()):")
+                        }
                         TextField("-", text: $bottom) { UIApplication.shared.endEditing() }
-                        .frame(width: 35)
+                        .frame(width: 45)
+                        .multilineTextAlignment(.center)
                         .keyboardType(.numberPad)
                         .padding()
                     }
@@ -379,18 +173,24 @@ private extension RemoteControlView {
                 VStack {
                     // Поворт право-вперед
                     HStack {
-                        createMainButton(-45)
+                        MotionControlButton(-45) {
+                            viewModel.sendToServer(command: "=DR>:\(topRight.convertToComand()):")
+                        }
                         TextField("-", text: $topRight) { UIApplication.shared.endEditing() }
-                        .frame(width: 35)
+                        .frame(width: 45)
+                        .multilineTextAlignment(.center)
                         .keyboardType(.numberPad)
                         .padding()
                     }
                     
                     // Поворт право-назад
                     HStack {
-                        createMainButton(45)
+                        MotionControlButton(45) {
+                            viewModel.sendToServer(command: "=DR<:\(bottomRight.convertToComand()):")
+                        }
                         TextField("-", text: $bottomRight) { UIApplication.shared.endEditing() }
-                        .frame(width: 35)
+                        .frame(width: 45)
+                        .multilineTextAlignment(.center)
                         .keyboardType(.numberPad)
                         .padding()
                     }
@@ -419,17 +219,177 @@ private extension RemoteControlView {
         .frame(maxWidth: .infinity, alignment: .center)
     }
     
-    func createMainButton(_ rotateAngle: Double, action: @escaping () -> Void = {}) -> some View {
-        Button(action: action) {
-            Image("right-arrow-4")
-                .rotationEffect(.degrees(rotateAngle))
-                .frame(width: 40, height: 40, alignment: .center)
+    func createAdditionalControlView() -> some View {
+        VStack {
+            // Left
+            HStack {
+                AdditionalControlButton("Left") {
+                    viewModel.sendToServer(command: "+WL" + (leftClockwise ? ">" : "<") + (leftLoop ? ":L000:" : ":\(leftAddition.convertToComand()):"))
+                }
+                
+                Button(action: { }) {
+                    Image("remove")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                }
+                
+                HStack {
+                    ScalableText("STEP:")
+                    TextField("0-100", text: $leftAddition) { UIApplication.shared.endEditing() }
+                    .frame(width: 45)
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numberPad)
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("LOOP:")
+                    Toggle("Loop:", isOn: $leftLoop)
+                        .labelsHidden()
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("CLOCKWISE:")
+                    HStack {
+                        Text("L")
+                            .bold()
+                        Toggle("", isOn: $leftClockwise)
+                            .labelsHidden()
+                        Text("R")
+                            .bold()
+                    }
+                }
+                .padding()
+            }
+            
+            // Right
+            HStack {
+                AdditionalControlButton("Right") {
+                    viewModel.sendToServer(command: "+WR" + (rightClockwise ? ">" : "<") + (rightLoop ? ":L000:" : ":\(rightAddition.convertToComand()):"))
+                }
+                
+                Button(action: { }) {
+                    Image("remove")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                }
+                
+                HStack {
+                    ScalableText("STEP:")
+                    TextField("0-100", text: $rightAddition) { UIApplication.shared.endEditing() }
+                    .frame(width: 45)
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numberPad)
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("LOOP:")
+                    Toggle("Loop:", isOn: $rightLoop)
+                        .labelsHidden()
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("CLOCKWISE:")
+                    HStack {
+                        Text("L")
+                            .bold()
+                        Toggle("", isOn: $rightClockwise)
+                            .labelsHidden()
+                        Text("R")
+                            .bold()
+                    }
+                }
+                .padding()
+            }
+            
+            // Screw
+            HStack {
+                AdditionalControlButton("Screw") {
+                    viewModel.sendToServer(command: "+S0" + (screwClockwise ? ">" : "<") + (screwLoop ? ":L000:" : ":\(screwAddition.convertToComand()):"))
+                }
+                
+                Button(action: { }) {
+                    Image("remove")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                }
+                
+                HStack {
+                    ScalableText("STEP:")
+                    TextField("0-100", text: $screwAddition) { UIApplication.shared.endEditing() }
+                    .frame(width: 45)
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numberPad)
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("LOOP:")
+                    Toggle("Loop:", isOn: $screwLoop)
+                        .labelsHidden()
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("CLOCKWISE:")
+                    HStack {
+                        Text("L")
+                            .bold()
+                        Toggle("", isOn: $screwClockwise)
+                            .labelsHidden()
+                        Text("R")
+                            .bold()
+                    }
+                }
+                .padding()
+            }
+            
+            // Batcher
+            HStack {
+                AdditionalControlButton("Batcher") {
+                    viewModel.sendToServer(command: "+B0" + (batcherClockwise ? ">" : "<") + (batcherLoop ? ":L000:" : ":\(batcherAddition.convertToComand()):"))
+                }
+                Button(action: { }) {
+                    Image("remove")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                }
+                
+                HStack {
+                    ScalableText("STEP:")
+                    TextField("0-100", text: $batcherAddition) { UIApplication.shared.endEditing() }
+                    .frame(width: 45)
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numberPad)
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("LOOP:")
+                    Toggle("Loop:", isOn: $batcherLoop)
+                        .labelsHidden()
+                }
+                .padding()
+                
+                VStack {
+                    ScalableText("CLOCKWISE:")
+                    HStack {
+                        Text("L")
+                            .bold()
+                        Toggle("", isOn: $batcherClockwise)
+                            .labelsHidden()
+                        Text("R")
+                            .bold()
+                    }
+                }
+                .padding()
+            }
         }
-        .frame(width: 60, height: 60, alignment: .center)
-        .background(Color.blue)
-        .cornerRadius(10)
     }
-    
+
     func createMainButton(_ title: String, action: @escaping () -> Void = {}) -> some View {
         Button(action: action) {
             Text(title)
@@ -449,6 +409,58 @@ private extension RemoteControlView {
                 .padding(.vertical, 12)
                 .padding(.horizontal, 54)
                 .font(.headline)
+        }
+    }
+}
+
+// MARK: - Additional Views
+private extension RemoteControlView {
+    struct MotionControlButton: View {
+        let rotateAngle: Double
+        let action: () -> Void
+        
+        init(
+            _ rotateAngle: Double,
+            action: @escaping () -> Void  = {}
+        ) {
+            self.rotateAngle = rotateAngle
+            self.action = action
+        }
+        
+        var body: some View {
+            Button(action: action) {
+                Image("right-arrow-4")
+                    .rotationEffect(.degrees(rotateAngle))
+                    .frame(width: 40, height: 40, alignment: .center)
+            }
+            .frame(width: 60, height: 60, alignment: .center)
+            .background(Color.blue)
+            .cornerRadius(10)
+        }
+    }
+    
+    struct AdditionalControlButton: View {
+        let title: String
+        let action: () -> Void
+        
+        init(
+            _ title: String,
+            action: @escaping () -> Void  = {}
+        ) {
+            self.title = title
+            self.action = action
+        }
+        
+        var body: some View {
+            Button(action: action) {
+                Text(title)
+                    .frame(width: 100, height: 15)
+                    .padding()
+                    .foregroundColor(.white)
+            }
+            .background(Color.blue)
+            .cornerRadius(8)
+            .padding()
         }
     }
 }
