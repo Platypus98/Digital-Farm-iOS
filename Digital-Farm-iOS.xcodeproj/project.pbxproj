@@ -42,6 +42,7 @@
 		9561E7E127949D2100205A0D /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E027949D2100205A0D /* Progress.swift */; };
 		9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E22794A06300205A0D /* ProgressBar.swift */; };
 		956DCBBC280C3BA700E40DF9 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */; };
+		958E5023298FD2CE0095D4BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 958E5025298FD2CE0095D4BF /* Localizable.strings */; };
 		9597F59B28A7C2080053BE02 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9597F59A28A7C2080053BE02 /* String+Extension.swift */; };
 		959EFC0427B80CCD005ED09F /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0327B80CCD005ED09F /* AnalyticsView.swift */; };
 		959EFC0627B80CE1005ED09F /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0527B80CE1005ED09F /* AnalyticsViewModel.swift */; };
@@ -124,6 +125,7 @@
 		9561E7E027949D2100205A0D /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		9561E7E22794A06300205A0D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		958E5024298FD2CE0095D4BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9597F59A28A7C2080053BE02 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		959EFC0327B80CCD005ED09F /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		959EFC0527B80CE1005ED09F /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		95615263278F3C3400205A0D = {
 			isa = PBXGroup;
 			children = (
+				958E5025298FD2CE0095D4BF /* Localizable.strings */,
 				9561526E278F3C3400205A0D /* Digital-Farm-iOS */,
 				95EBD92927988F9B00BC4607 /* Digital-Farm-iOSTests */,
 				9561528B278F3C3600205A0D /* Digital-Farm-iOSUITests */,
@@ -576,6 +579,7 @@
 			knownRegions = (
 				en,
 				ru,
+				Base,
 			);
 			mainGroup = 95615263278F3C3400205A0D;
 			productRefGroup = 9561526D278F3C3400205A0D /* Products */;
@@ -595,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95615277278F3C3500205A0D /* Preview Assets.xcassets in Resources */,
+				958E5023298FD2CE0095D4BF /* Localizable.strings in Resources */,
 				9561705F278F683200205A0D /* Localizable.strings in Resources */,
 				95615274278F3C3500205A0D /* Assets.xcassets in Resources */,
 			);
@@ -812,6 +817,14 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		958E5025298FD2CE0095D4BF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				958E5024298FD2CE0095D4BF /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -872,6 +885,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -926,6 +940,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
