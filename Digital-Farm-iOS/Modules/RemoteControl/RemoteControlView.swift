@@ -24,6 +24,7 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
     @State private var bottomLeft: String = "360"
     @State private var bottomRight: String = "360"
     @State private var bottom: String = "360"
+    @State private var isMotionLoop = false
     
     @State private var leftAddition: String = "400"
     @State private var leftClockwise = true
@@ -118,7 +119,7 @@ private extension RemoteControlView {
                         .keyboardType(.numberPad)
                         .padding()
                         MotionControlButton(-135) {
-                            viewModel.sendToServer(command: "=DL>:\(topLeft.convertToComand()):")
+                            viewModel.sendToServer(command: "=DL<:"  + (isMotionLoop ? "L000:" : "\(topLeft.convertToComand())") + ":")
                         }
                     }
                     
@@ -130,7 +131,7 @@ private extension RemoteControlView {
                         .keyboardType(.numberPad)
                         .padding()
                         MotionControlButton(135) {
-                            viewModel.sendToServer(command: "=DL<:\(bottomLeft.convertToComand()):")
+                            viewModel.sendToServer(command: "=DL>:" + (isMotionLoop ? "L000:" : "\(bottomLeft.convertToComand())") + ":")
                         }
                     }
                 }
@@ -144,14 +145,14 @@ private extension RemoteControlView {
                         .keyboardType(.numberPad)
                         .padding()
                         MotionControlButton(-90) {
-                            viewModel.sendToServer(command: "=DF0:\(top.convertToComand()):")
+                            viewModel.sendToServer(command: "=DF0:" + (isMotionLoop ? "L000:" : "\(top.convertToComand())") + ":")
                         }
                     }
                     
                     // Сброс
                     VStack {
                         Button {
-                            print("close")
+                            viewModel.sendToServer(command: "=D00:0000:")
                         } label: {
                             Image("remove")
                         }
@@ -160,7 +161,7 @@ private extension RemoteControlView {
                     // Поворт назад
                     VStack {
                         MotionControlButton(90) {
-                            viewModel.sendToServer(command: "=DB0:\(bottom.convertToComand()):")
+                            viewModel.sendToServer(command: "=DB0:" + (isMotionLoop ? "L000:" : "\(bottom.convertToComand())") + ":")
                         }
                         TextField("-", text: $bottom) { UIApplication.shared.endEditing() }
                         .frame(width: 45)
@@ -174,7 +175,7 @@ private extension RemoteControlView {
                     // Поворт право-вперед
                     HStack {
                         MotionControlButton(-45) {
-                            viewModel.sendToServer(command: "=DR>:\(topRight.convertToComand()):")
+                            viewModel.sendToServer(command: "=DR>:" + (isMotionLoop ? "L000:" : "\(topRight.convertToComand())") + ":")
                         }
                         TextField("-", text: $topRight) { UIApplication.shared.endEditing() }
                         .frame(width: 45)
@@ -186,7 +187,7 @@ private extension RemoteControlView {
                     // Поворт право-назад
                     HStack {
                         MotionControlButton(45) {
-                            viewModel.sendToServer(command: "=DR<:\(bottomRight.convertToComand()):")
+                            viewModel.sendToServer(command: "=DR<:" + (isMotionLoop ? "L000:" : "\(bottomRight.convertToComand())") + ":")
                         }
                         TextField("-", text: $bottomRight) { UIApplication.shared.endEditing() }
                         .frame(width: 45)
@@ -198,22 +199,9 @@ private extension RemoteControlView {
             }
             
             Spacer(minLength: 10)
-            VStack {
-                Text("Дополнительные функции")
-                HStack {
-                    createMainButton("Ф1") {
-                        viewModel.sendToServer(command: "F1:")
-                    }
-                    createMainButton("Ф2") {
-                        viewModel.sendToServer(command: "F2:")
-                    }
-                    createMainButton("Ф3") {
-                        viewModel.sendToServer(command: "F3:")
-                    }
-                    createMainButton("Ф4") {
-                        viewModel.sendToServer(command: "F4:")
-                    }
-                }
+            HStack {
+                ScalableText("LOOP:")
+                Toggle("Loop:", isOn: $isMotionLoop).labelsHidden()
             }
         }
         .frame(maxWidth: .infinity, alignment: .center)
