@@ -26,14 +26,6 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
     @State private var bottom: String = "360"
     @State private var isMotionLoop = false
     
-    @State private var leftAddition: String = "400"
-    @State private var leftClockwise = true
-    @State private var leftLoop = false
-    
-    @State private var rightAddition: String = "400"
-    @State private var rightClockwise = true
-    @State private var rightLoop = false
-    
     @State private var screwAddition: String = "400"
     @State private var screwClockwise = true
     @State private var screwLoop = false
@@ -41,6 +33,11 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
     @State private var batcherAddition: String = "400"
     @State private var batcherClockwise = true
     @State private var batcherLoop = false
+    
+    @State private var isScrewEn = true
+    @State private var isBatcherEn = true
+    @State private var isDriverLeftEn = true
+    @State private var isDriverRightEn = true
     
     // MARK: - Init
     init(viewModel: ViewModel) {
@@ -71,14 +68,21 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
                     ScrollView {
                         HStack(alignment: .center) {
                             createMotionControlView()
-                            
                             Divider()
-                            
-                            createAdditionalControlView()
+                            VStack {
+                                createAdditionalControlView()
+                                Divider()
+                                HStack {
+                                    createRegisterSetupView()
+                                        .padding(10)
+                                    Spacer(minLength: 10)
+                                    createENSetupView()
+                                        .padding(10)
+                                }
+                            }
                         }
                     }
                     
-                    // Spacer(minLength: 100)
                     HStack {
                         createBaseActionButton(title: appearance.startTitle) {
                             // TO-DO: Start action
@@ -119,7 +123,7 @@ private extension RemoteControlView {
                         .keyboardType(.numberPad)
                         .padding()
                         MotionControlButton(-135) {
-                            viewModel.sendToServer(command: "=DL<:"  + (isMotionLoop ? "L000:" : "\(topLeft.convertToComand())") + ":")
+                            viewModel.sendToServer(command: "=DL<:"  + (isMotionLoop ? "L000:" : "\(topLeft.convertToComand()):"))
                         }
                     }
                     
@@ -131,7 +135,7 @@ private extension RemoteControlView {
                         .keyboardType(.numberPad)
                         .padding()
                         MotionControlButton(135) {
-                            viewModel.sendToServer(command: "=DL>:" + (isMotionLoop ? "L000:" : "\(bottomLeft.convertToComand())") + ":")
+                            viewModel.sendToServer(command: "=DL>:" + (isMotionLoop ? "L000:" : "\(bottomLeft.convertToComand()):"))
                         }
                     }
                 }
@@ -145,7 +149,7 @@ private extension RemoteControlView {
                         .keyboardType(.numberPad)
                         .padding()
                         MotionControlButton(-90) {
-                            viewModel.sendToServer(command: "=DF0:" + (isMotionLoop ? "L000:" : "\(top.convertToComand())") + ":")
+                            viewModel.sendToServer(command: "=DF0:" + (isMotionLoop ? "L000:" : "\(top.convertToComand()):"))
                         }
                     }
                     
@@ -161,7 +165,7 @@ private extension RemoteControlView {
                     // Поворт назад
                     VStack {
                         MotionControlButton(90) {
-                            viewModel.sendToServer(command: "=DB0:" + (isMotionLoop ? "L000:" : "\(bottom.convertToComand())") + ":")
+                            viewModel.sendToServer(command: "=DB0:" + (isMotionLoop ? "L000:" : "\(bottom.convertToComand()):"))
                         }
                         TextField("-", text: $bottom) { UIApplication.shared.endEditing() }
                         .frame(width: 45)
@@ -175,7 +179,7 @@ private extension RemoteControlView {
                     // Поворт право-вперед
                     HStack {
                         MotionControlButton(-45) {
-                            viewModel.sendToServer(command: "=DR>:" + (isMotionLoop ? "L000:" : "\(topRight.convertToComand())") + ":")
+                            viewModel.sendToServer(command: "=DR>:" + (isMotionLoop ? "L000:" : "\(topRight.convertToComand()):"))
                         }
                         TextField("-", text: $topRight) { UIApplication.shared.endEditing() }
                         .frame(width: 45)
@@ -187,7 +191,7 @@ private extension RemoteControlView {
                     // Поворт право-назад
                     HStack {
                         MotionControlButton(45) {
-                            viewModel.sendToServer(command: "=DR<:" + (isMotionLoop ? "L000:" : "\(bottomRight.convertToComand())") + ":")
+                            viewModel.sendToServer(command: "=DR<:" + (isMotionLoop ? "L000:" : "\(bottomRight.convertToComand()):"))
                         }
                         TextField("-", text: $bottomRight) { UIApplication.shared.endEditing() }
                         .frame(width: 45)
@@ -294,6 +298,89 @@ private extension RemoteControlView {
                     }
                 }
                 .padding()
+            }
+        }
+    }
+    
+    func createRegisterSetupView() -> some View {
+        VStack {
+            Text("REGISTER: 0000").bold()
+            Text("VALUE: 0000").bold()
+            Button(action: {}) {
+                Text("READ")
+                    .frame(width: 100, height: 15)
+                    .padding()
+                    .foregroundColor(.white)
+            }
+            .background(Color.blue)
+            .cornerRadius(8)
+            Button(action: {}) {
+                Text("WRITE")
+                    .frame(width: 100, height: 15)
+                    .padding()
+                    .foregroundColor(.white)
+            }
+            .background(Color.blue)
+            .cornerRadius(8)
+        }
+    }
+    
+    func createENSetupView() -> some View {
+        VStack(alignment: .leading) {
+            // MARK: - ScrewEN
+            HStack {
+                Text("SCREW")
+                    .bold()
+                    .frame(width: 120, alignment: .leading)
+                ScalableText("EN")
+                Toggle("Loop:", isOn: $isScrewEn)
+                    .labelsHidden()
+                    .padding()
+                    .onChange(of: isScrewEn) { value in
+                        viewModel.sendToServer(command: "#M11" + (value ? ":0001:" : ":0000:"))
+                    }
+            }
+            
+            // MARK: - BatcherEN
+            HStack {
+                Text("BATCHER")
+                    .bold()
+                    .frame(width: 120, alignment: .leading)
+                ScalableText("EN")
+                Toggle("Loop:", isOn: $isBatcherEn)
+                    .labelsHidden()
+                    .padding()
+                    .onChange(of: isBatcherEn) { value in
+                        viewModel.sendToServer(command: "#M12" + (value ? ":0001:" : ":0000:"))
+                    }
+            }
+            
+            // MARK: - DriverLeftEN
+            HStack {
+                Text("Driver LEFT")
+                    .bold()
+                    .frame(width: 120, alignment: .leading)
+                ScalableText("EN")
+                Toggle("Loop:", isOn: $isDriverLeftEn)
+                    .labelsHidden()
+                    .padding()
+                    .onChange(of: isDriverLeftEn) { value in
+                        viewModel.sendToServer(command: "#M10" + (value ? ":0001:" : ":0000:"))
+                    }
+            }
+            
+            // MARK: - DriverRightEn
+            HStack {
+                Text("Driver RIGHT")
+                    .bold()
+                    .frame(width: 120, alignment: .leading)
+                ScalableText("EN")
+                Toggle("Loop:", isOn: $isDriverRightEn)
+                    .labelsHidden()
+                    .padding()
+                    .onChange(of: isDriverRightEn) { value in
+                        viewModel.sendToServer(command: "#M09" + (value ? ":0001:" : ":0000:"))
+                    }
             }
         }
     }
