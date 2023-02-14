@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  Digital-Farm-iOS
+
+  Created by Илья Голышков on 05.02.2023.
+  
+*/
+
+// MARK: - MainScreen
+"MainScreen.Title" = "Main";
+"MainScreen.Info" = "About app";
+"MainScreen.InternetDevice.Connected" = "Connected";
+"MainScreen.InternetDevice.NotСonnected" = "Not connected";
+
+// MARK: - FeedPusher
+"FeedPusher.Title" = "Robot feed pusher";
+"FeedPusher.Status.Waiting" = "Standby mode";
+"FeedPusher.Status.InWork" = "In work";
+"FeedPusher.Charge.Title" = "Charge";
+"FeedPusher.StockLevel.Title" = "Component stock";
+"FeedPusher.DispenserPerformance.Title" = "Dispenser performance";
+"FeedPusher.Schedule.Title" = "Schedule";
+"FeedPusher.ServiceMenu.Title" = "Service menu";
+"FeedPusher.Analytics.Title" = "Analytics";
+"FeedPusher.RemoteControl.Title" = "Remote controller";
+"FeedPusher.Start.Title" = "Launch";
+"FeedPusher.Return.Title" = "Return";
+
+// MARK: - FeedPusher.Schedule
+"FeedPusher.Schedule.Title" = "Schedule";
+"FeedPusher.Schedule.Time.Title" = "Time interval";
+"FeedPusher.Schedule.Availability.Title" = "Availability";
+"FeedPusher.Schedule.PickTime.Title" = "Select time:";
+
+// MARK: - FeedPusher.ServiceMenu
+"FeedPusher.ServiceMenu.Title" = "Service menu";
+
+// MARK: - FeedPusher.Analytics
+"FeedPusher.Analytics.Title" = "Analytics";
+"FeedPusher.Analytics.CyclesPerDay.Title" = "Number of cycles per day";
+"FeedPusher.Analytics.FeedIssued.Title" = "The amount of feed given, kg / day";
+"FeedPusher.Analytics.EnergyValue.Title" = "Energy value";
+"FeedPusher.Analytics.Proteins.Title" = "Proteins";
+"FeedPusher.Analytics.Cellulose.Title" = "Cellulose";
+"FeedPusher.Analytics.Fats.Title" = "Fats";
+"FeedPusher.Analytics.Carbohydrates.Title" = "Carbohydrates";
+
+// MARK: - FeedPusher.RemoteControl
+"FeedPusher.RemoteControl.Title" = "Remote controller";
+
+// MARK: - AppSettings
+"AppSettings.Title" = "About app";

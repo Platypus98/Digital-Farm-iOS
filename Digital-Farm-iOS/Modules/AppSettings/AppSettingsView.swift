@@ -12,6 +12,8 @@ struct AppSettingsView<ViewModel: AppSettingsViewModel>: View {
     // MARK: - Private properties
     @ObservedObject private var viewModel: ViewModel
     private let appearance = Appearance()
+    @State private var ip: String = UserDefaults.standard.object(forKey: "IP") as? String ?? ""
+    @State private var port: String = String(UserDefaults.standard.object(forKey: "Port") as? Int32 ?? 0)
     
     // MARK: - Init
     init(viewModel: ViewModel) {
@@ -33,9 +35,24 @@ struct AppSettingsView<ViewModel: AppSettingsViewModel>: View {
         case .loaded(let appSettings):
             return AnyView(
                 VStack {
+                    HStack {
+                        Text("IP адрес:")
+                        TextField("________", text: $ip) {
+                            viewModel.saveIPAndPort(ip: ip, port: port)
+                            UIApplication.shared.endEditing()
+                        }
+                    }
+                    HStack {
+                        Text("Порт:")
+                        TextField("________", text: $port) {
+                            viewModel.saveIPAndPort(ip: ip, port: port)
+                            UIApplication.shared.endEditing()
+                        }
+                    }
                     Text(appSettings.text)
                         .multilineTextAlignment(.center)
                 }
+                    .padding()
             )
         }
     }
