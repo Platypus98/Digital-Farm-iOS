@@ -209,97 +209,15 @@ private extension RemoteControlView {
     
     func createAdditionalControlView() -> some View {
         VStack {
-            // Left
-            HStack {
-                AdditionalControlButton("Left") {
-                    viewModel.sendToServer(command: "+WL" + (leftClockwise ? ">" : "<") + (leftLoop ? ":L000:" : ":\(leftAddition.convertToComand()):"))
-                }
-                
-                Button(action: { }) {
-                    Image("remove")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                }
-                
-                HStack {
-                    ScalableText("STEP:")
-                    TextField("0-100", text: $leftAddition) { UIApplication.shared.endEditing() }
-                    .frame(width: 45)
-                    .multilineTextAlignment(.center)
-                    .keyboardType(.numberPad)
-                }
-                .padding()
-                
-                VStack {
-                    ScalableText("LOOP:")
-                    Toggle("Loop:", isOn: $leftLoop)
-                        .labelsHidden()
-                }
-                .padding()
-                
-                VStack {
-                    ScalableText("CLOCKWISE:")
-                    HStack {
-                        Text("L")
-                            .bold()
-                        Toggle("", isOn: $leftClockwise)
-                            .labelsHidden()
-                        Text("R")
-                            .bold()
-                    }
-                }
-                .padding()
-            }
-            
-            // Right
-            HStack {
-                AdditionalControlButton("Right") {
-                    viewModel.sendToServer(command: "+WR" + (rightClockwise ? ">" : "<") + (rightLoop ? ":L000:" : ":\(rightAddition.convertToComand()):"))
-                }
-                
-                Button(action: { }) {
-                    Image("remove")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                }
-                
-                HStack {
-                    ScalableText("STEP:")
-                    TextField("0-100", text: $rightAddition) { UIApplication.shared.endEditing() }
-                    .frame(width: 45)
-                    .multilineTextAlignment(.center)
-                    .keyboardType(.numberPad)
-                }
-                .padding()
-                
-                VStack {
-                    ScalableText("LOOP:")
-                    Toggle("Loop:", isOn: $rightLoop)
-                        .labelsHidden()
-                }
-                .padding()
-                
-                VStack {
-                    ScalableText("CLOCKWISE:")
-                    HStack {
-                        Text("L")
-                            .bold()
-                        Toggle("", isOn: $rightClockwise)
-                            .labelsHidden()
-                        Text("R")
-                            .bold()
-                    }
-                }
-                .padding()
-            }
-            
-            // Screw
+            // MARK: - Screw
             HStack {
                 AdditionalControlButton("Screw") {
                     viewModel.sendToServer(command: "+S0" + (screwClockwise ? ">" : "<") + (screwLoop ? ":L000:" : ":\(screwAddition.convertToComand()):"))
                 }
                 
-                Button(action: { }) {
+                Button(action: {
+                    viewModel.sendToServer(command: "+S00:0000:")
+                }) {
                     Image("remove")
                         .resizable()
                         .frame(width: 32, height: 32)
@@ -335,12 +253,14 @@ private extension RemoteControlView {
                 .padding()
             }
             
-            // Batcher
+            // MARK: - Batcher
             HStack {
                 AdditionalControlButton("Batcher") {
                     viewModel.sendToServer(command: "+B0" + (batcherClockwise ? ">" : "<") + (batcherLoop ? ":L000:" : ":\(batcherAddition.convertToComand()):"))
                 }
-                Button(action: { }) {
+                Button(action: {
+                    viewModel.sendToServer(command: "+B00:0000:")
+                }) {
                     Image("remove")
                         .resizable()
                         .frame(width: 32, height: 32)
