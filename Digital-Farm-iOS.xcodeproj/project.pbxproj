@@ -61,6 +61,8 @@
 		95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9232798797D00BC4607 /* FeedPusherAction.swift */; };
 		95EBD9262798855B00BC4607 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD9252798855B00BC4607 /* ActionView.swift */; };
 		95EBD92C27988F9B00BC4607 /* Digital_Farm_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD92A27988F9B00BC4607 /* Digital_Farm_iOSTests.swift */; };
+		95F0592329C74069005E2E64 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0592229C74069005E2E64 /* SocketClient.swift */; };
+		95F0592529C7595F005E2E64 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0592429C7595F005E2E64 /* View+ViewDidLoadModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,8 @@
 		95EBD9252798855B00BC4607 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		95EBD92A27988F9B00BC4607 /* Digital_Farm_iOSTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Digital_Farm_iOSTests.swift; sourceTree = "<group>"; };
 		95EBD92B27988F9B00BC4607 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F0592229C74069005E2E64 /* SocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
+		95F0592429C7595F005E2E64 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
 		B64F515D88FB7D50D3AF6B63 /* Pods-Digital-Farm-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Digital-Farm-iOS.release.xcconfig"; path = "Target Support Files/Pods-Digital-Farm-iOS/Pods-Digital-Farm-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FD85BF0483F1017AC97226B3 /* Pods-Digital-Farm-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Digital-Farm-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Digital-Farm-iOSTests/Pods-Digital-Farm-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +276,7 @@
 		9561526E278F3C3400205A0D /* Digital-Farm-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				95F0592129C7403F005E2E64 /* NetworkKit */,
 				95617065278F696E00205A0D /* Helpers */,
 				9561529A278F453000205A0D /* Modules */,
 				9561526F278F3C3400205A0D /* Digital_Farm_iOSApp.swift */,
@@ -344,6 +349,7 @@
 				95617066278F697800205A0D /* Localized.swift */,
 				9544860E2808B3AA007FF3EC /* Bundle+Extension.swift */,
 				956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */,
+				95F0592429C7595F005E2E64 /* View+ViewDidLoadModifier.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -487,6 +493,14 @@
 				95EBD92B27988F9B00BC4607 /* Info.plist */,
 			);
 			path = "Digital-Farm-iOSTests";
+			sourceTree = "<group>";
+		};
+		95F0592129C7403F005E2E64 /* NetworkKit */ = {
+			isa = PBXGroup;
+			children = (
+				95F0592229C74069005E2E64 /* SocketClient.swift */,
+			);
+			path = NetworkKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -732,6 +746,7 @@
 				95E0DEB5279D89D900ACC9E2 /* FeedPusherComponent.swift in Sources */,
 				95E03A50285CE5C600A010BD /* ScalableText.swift in Sources */,
 				9544860F2808B3AA007FF3EC /* Bundle+Extension.swift in Sources */,
+				95F0592329C74069005E2E64 /* SocketClient.swift in Sources */,
 				95E3256E27B18B3800B5BD55 /* RemoteControlView.swift in Sources */,
 				95615272278F3C3400205A0D /* RootView.swift in Sources */,
 				9529093627F8B47A00B24C4B /* ScheduleViewModel.swift in Sources */,
@@ -771,6 +786,7 @@
 				9529093B27F8B70600B24C4B /* ScheduleService.swift in Sources */,
 				95E3256B27B17C9600B5BD55 /* FeedPusherVisualModel.swift in Sources */,
 				9561E7DD27949CC600205A0D /* InterestStateView.swift in Sources */,
+				95F0592529C7595F005E2E64 /* View+ViewDidLoadModifier.swift in Sources */,
 				9561E7D7279482C400205A0D /* FeedPusherService.swift in Sources */,
 				95617067278F697800205A0D /* Localized.swift in Sources */,
 				959EFC0627B80CE1005ED09F /* AnalyticsViewModel.swift in Sources */,

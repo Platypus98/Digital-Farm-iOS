@@ -22,17 +22,19 @@ struct FeedPusherView<ViewModel: FeedPusherViewModelProtocol>: View {
     // MARK: - Content
     var body: some View {
         content.navigationTitle(appearance.title)
-        .onAppear(perform: {
+        .onLoad {
             viewModel.fetchFeedPusher()
-        })
+        }
     }
     
     private var content: some View {
         switch viewModel.state {
         case .loading:
             return AnyView(ProgressView())
-        case .error:
-            return AnyView(ProgressView())
+        case .error(let error):
+            return AnyView(
+                Text(error.localizedDescription)
+            )
         case .loaded(let feedPusher):
             return AnyView(
                 VStack {

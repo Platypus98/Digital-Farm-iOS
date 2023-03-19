@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftSocket
 
 protocol ScheduleViewModelProtocol: ObservableObject {
     var state: ScheduleViewModel.State { get }
@@ -19,12 +20,15 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
     // MARK: - Private properties
     @Published private(set) var state = State.loading
     private let scheduleService: ScheduleServiceProtocol
+    private let socketClient: SocketClientProtocol
     
     // MARK: - Init
     init(
-        scheduleService: ScheduleServiceProtocol = ScheduleService()
+        scheduleService: ScheduleServiceProtocol = ScheduleService(),
+        socketClient: SocketClientProtocol = TCPClient.shared
     ) {
         self.scheduleService = scheduleService
+        self.socketClient = socketClient
     }
     
     func fetchSchedule() {

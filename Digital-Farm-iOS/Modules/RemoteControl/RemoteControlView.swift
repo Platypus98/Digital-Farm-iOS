@@ -48,9 +48,9 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
     // MARK: - Content
     var body: some View {
         content.navigationTitle(appearance.title)
-        .onAppear(perform: {
-            viewModel.connectToServer()
-        })
+        .onAppear {
+            viewModel.fetchData()
+        }
     }
     
     private var content: some View {
