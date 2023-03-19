@@ -85,14 +85,14 @@ struct RemoteControlView<ViewModel: RemoteControlViewModelProtocol>: View {
                     
                     HStack {
                         createBaseActionButton(title: appearance.startTitle) {
-                            // TO-DO: Start action
+                            viewModel.sendToServer(command: "#M71:0001:")
                         }
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                         
                         createBaseActionButton(title: appearance.returnTitle) {
-                            // TO-DO: Return action
+                            viewModel.sendToServer(command: "#M71:0000:")
                         }
                         .background(Color.white)
                         .foregroundColor(.red)
