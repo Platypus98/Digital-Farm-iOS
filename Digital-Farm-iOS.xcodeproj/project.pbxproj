@@ -63,6 +63,7 @@
 		95EBD92C27988F9B00BC4607 /* Digital_Farm_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBD92A27988F9B00BC4607 /* Digital_Farm_iOSTests.swift */; };
 		95F0592329C74069005E2E64 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0592229C74069005E2E64 /* SocketClient.swift */; };
 		95F0592529C7595F005E2E64 /* View+ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0592429C7595F005E2E64 /* View+ViewDidLoadModifier.swift */; };
+		95F0592729C76913005E2E64 /* ScheduleViewModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F0592629C76913005E2E64 /* ScheduleViewModelBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		95EBD92B27988F9B00BC4607 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95F0592229C74069005E2E64 /* SocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
 		95F0592429C7595F005E2E64 /* View+ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewDidLoadModifier.swift"; sourceTree = "<group>"; };
+		95F0592629C76913005E2E64 /* ScheduleViewModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModelBuilder.swift; sourceTree = "<group>"; };
 		B64F515D88FB7D50D3AF6B63 /* Pods-Digital-Farm-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Digital-Farm-iOS.release.xcconfig"; path = "Target Support Files/Pods-Digital-Farm-iOS/Pods-Digital-Farm-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		FD85BF0483F1017AC97226B3 /* Pods-Digital-Farm-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Digital-Farm-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Digital-Farm-iOSTests/Pods-Digital-Farm-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +228,7 @@
 		9529093C27F8B80600B24C4B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				95F0592629C76913005E2E64 /* ScheduleViewModelBuilder.swift */,
 				9529093D27F8B82900B24C4B /* ScheduleTime.swift */,
 				9529093F27F8B9EC00B24C4B /* ScheduleTimeViewModel.swift */,
 			);
@@ -784,6 +787,7 @@
 				9544860D2808B2B6007FF3EC /* AppSettingsVisualModel.swift in Sources */,
 				95EBD9242798797D00BC4607 /* FeedPusherAction.swift in Sources */,
 				9529093B27F8B70600B24C4B /* ScheduleService.swift in Sources */,
+				95F0592729C76913005E2E64 /* ScheduleViewModelBuilder.swift in Sources */,
 				95E3256B27B17C9600B5BD55 /* FeedPusherVisualModel.swift in Sources */,
 				9561E7DD27949CC600205A0D /* InterestStateView.swift in Sources */,
 				95F0592529C7595F005E2E64 /* View+ViewDidLoadModifier.swift in Sources */,

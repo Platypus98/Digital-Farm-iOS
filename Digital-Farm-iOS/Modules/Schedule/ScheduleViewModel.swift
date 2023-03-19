@@ -21,27 +21,36 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
     @Published private(set) var state = State.loading
     private let scheduleService: ScheduleServiceProtocol
     private let socketClient: SocketClientProtocol
+    private let scheduleViewModelBuilder: ScheduleViewModelBuilderProtocol
     
     // MARK: - Init
     init(
         scheduleService: ScheduleServiceProtocol = ScheduleService(),
-        socketClient: SocketClientProtocol = TCPClient.shared
+        socketClient: SocketClientProtocol = TCPClient.shared,
+        scheduleViewModelBuilder: ScheduleViewModelBuilderProtocol = ScheduleViewModelBuilder()
     ) {
         self.scheduleService = scheduleService
         self.socketClient = socketClient
+        self.scheduleViewModelBuilder = scheduleViewModelBuilder
     }
     
     func fetchSchedule() {
         state = .loading
-        scheduleService.fetchSchedules { [weak self] schedule in
-            let viewModel = schedule.map {
-                ScheduleTimeViewModel(
-                    id: UUID(),
-                    time: $0.time,
-                    isEnabled: $0.isEnabled
-                )
+        DispatchQueue.global().async { [weak self] in
+            guard let self else { return }
+            switch self.socketClient.send(string: "#M50:0001:") {
+            case .success:
+                let bytes = self.socketClient.read(100, timeout: 5)
+                let rawData = String(decoding: Data(bytes!), as: UTF8.self)
+                let viewModels = self.scheduleViewModelBuilder.createViewModels(from: rawData)
+                DispatchQueue.main.async {
+                    self.state = .loaded(viewModels)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.state = .error(error)
+                }
             }
-            self?.state = .loaded(viewModel)
         }
     }
     

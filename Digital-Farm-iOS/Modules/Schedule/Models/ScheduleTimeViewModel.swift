@@ -8,7 +8,7 @@
 import Foundation
 
 struct ScheduleTimeViewModel: Identifiable {
-    var id: UUID
+    var id: String
     var time: String
     var isEnabled: Bool
 }
