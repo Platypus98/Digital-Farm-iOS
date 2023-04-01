@@ -50,3 +50,6 @@
 
 // MARK: - AppSettings
 "AppSettings.Title" = "About app";
+
+// MARK: - DefaultErrors
+"DefaultErrors.NetworkError" = "Something went wrong";

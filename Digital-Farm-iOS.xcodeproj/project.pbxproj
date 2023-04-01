@@ -43,6 +43,7 @@
 		9561E7E32794A06300205A0D /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561E7E22794A06300205A0D /* ProgressBar.swift */; };
 		956DCBBC280C3BA700E40DF9 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */; };
 		958E5023298FD2CE0095D4BF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 958E5025298FD2CE0095D4BF /* Localizable.strings */; };
+		9591E4DB29D83A1000E6E64A /* DefaultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9591E4DA29D83A1000E6E64A /* DefaultError.swift */; };
 		9597F59B28A7C2080053BE02 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9597F59A28A7C2080053BE02 /* String+Extension.swift */; };
 		959EFC0427B80CCD005ED09F /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0327B80CCD005ED09F /* AnalyticsView.swift */; };
 		959EFC0627B80CE1005ED09F /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959EFC0527B80CE1005ED09F /* AnalyticsViewModel.swift */; };
@@ -129,6 +130,7 @@
 		9561E7E22794A06300205A0D /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		956DCBBB280C3BA700E40DF9 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		958E5024298FD2CE0095D4BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9591E4DA29D83A1000E6E64A /* DefaultError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultError.swift; sourceTree = "<group>"; };
 		9597F59A28A7C2080053BE02 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		959EFC0327B80CCD005ED09F /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		959EFC0527B80CE1005ED09F /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 		95F0592129C7403F005E2E64 /* NetworkKit */ = {
 			isa = PBXGroup;
 			children = (
+				9591E4DA29D83A1000E6E64A /* DefaultError.swift */,
 				95F0592229C74069005E2E64 /* SocketClient.swift */,
 			);
 			path = NetworkKit;
@@ -794,6 +797,7 @@
 				9561E7D7279482C400205A0D /* FeedPusherService.swift in Sources */,
 				95617067278F697800205A0D /* Localized.swift in Sources */,
 				959EFC0627B80CE1005ED09F /* AnalyticsViewModel.swift in Sources */,
+				9591E4DB29D83A1000E6E64A /* DefaultError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,7 +987,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.1;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vim.Digital-Farm-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1008,7 +1012,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.1;
+				MARKETING_VERSION = 0.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.vim.Digital-Farm-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

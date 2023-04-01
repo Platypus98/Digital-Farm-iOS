@@ -50,3 +50,6 @@
 
 // MARK: - AppSettings
 "AppSettings.Title" = "О приложении";
+
+// MARK: - DefaultErrors
+"DefaultErrors.NetworkError" = "Что-то пошло не так";

@@ -14,6 +14,7 @@ protocol SocketClientProtocol {
     func send(string: String) -> Result
     func send(data: Data) -> Result
     func read(_ expectlen: Int, timeout: Int) -> [UInt8]?
+    func cleanResponseStack()
 }
 
 extension TCPClient: SocketClientProtocol {
@@ -21,4 +22,8 @@ extension TCPClient: SocketClientProtocol {
         address: UserDefaults.standard.object(forKey: "IP") as? String ?? "",
         port: UserDefaults.standard.object(forKey: "Port") as? Int32 ?? 0
     )
+    
+    func cleanResponseStack() {
+        _ = read(1000, timeout: 0)
+    }
 }

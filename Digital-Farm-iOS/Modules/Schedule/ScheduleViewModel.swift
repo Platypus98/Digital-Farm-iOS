@@ -38,10 +38,17 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
         state = .loading
         DispatchQueue.global().async { [weak self] in
             guard let self else { return }
+            self.socketClient.cleanResponseStack()
             switch self.socketClient.send(string: "#M50:0001:") {
             case .success:
-                let bytes = self.socketClient.read(100, timeout: 5)
-                let rawData = String(decoding: Data(bytes!), as: UTF8.self)
+                let bytes = self.socketClient.read(110, timeout: 5)
+                guard let bytes = bytes else {
+                    DispatchQueue.main.async {
+                        self.state = .error(DefaultError.networkError)
+                    }
+                    return
+                }
+                let rawData = String(decoding: Data(bytes), as: UTF8.self)
                 let viewModels = self.scheduleViewModelBuilder.createViewModels(from: rawData)
                 DispatchQueue.main.async {
                     self.state = .loaded(viewModels)
@@ -55,9 +62,26 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
     }
     
     func addTime(time: String) {
+        guard case let .loaded(currentViewModels) = state,
+              let lastScheduleNumber = currentViewModels.last?.id.suffix(2),
+              let lastScheduleNumberInt = Int(lastScheduleNumber)  else { return }
+        let newCommandCell = "\(lastScheduleNumberInt + 1)"
+        let fullRequest = ":#M\(newCommandCell):\(time):"
         state = .loading
-        scheduleService.addTime(time) { [weak self] in
-            self?.fetchSchedule()
+        DispatchQueue.global().async { [weak self] in
+            guard let self else { return }
+            switch self.socketClient.send(string: fullRequest) {
+            case .success:
+                let bytes = self.socketClient.read(10, timeout: 5)
+                DispatchQueue.main.async {
+                    guard let _ = bytes else { self.state = .error(DefaultError.networkError); return }
+                    self.fetchSchedule()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.state = .error(error)
+                }
+            }
         }
     }
 }

@@ -30,8 +30,10 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
         switch viewModel.state {
         case .loading:
             return AnyView(ProgressView())
-        case .error:
-            return AnyView(ProgressView())
+        case .error(let error):
+            return AnyView(
+                Text(error.localizedDescription)
+            )
         case .loaded(let schedulesTimes):
             return AnyView(
                 VStack {
