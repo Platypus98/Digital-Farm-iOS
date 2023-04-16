@@ -31,6 +31,7 @@
 "FeedPusher.Schedule.Time.Title" = "Time interval";
 "FeedPusher.Schedule.Availability.Title" = "Availability";
 "FeedPusher.Schedule.PickTime.Title" = "Select time:";
+"FeedPusher.Schedule.Time.Delete" = "Delete";
 
 // MARK: - FeedPusher.ServiceMenu
 "FeedPusher.ServiceMenu.Title" = "Service menu";

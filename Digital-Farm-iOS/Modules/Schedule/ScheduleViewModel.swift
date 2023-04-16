@@ -13,6 +13,7 @@ protocol ScheduleViewModelProtocol: ObservableObject {
     var state: ScheduleViewModel.State { get }
     func fetchSchedule()
     func addTime(time: String)
+    func deleteTime(timeId: String)
 }
 
 final class ScheduleViewModel: ScheduleViewModelProtocol {
@@ -66,8 +67,28 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
               let lastScheduleNumber = currentViewModels.last?.id.suffix(2),
               let lastScheduleNumberInt = Int(lastScheduleNumber)  else { return }
         let newCommandCell = "\(lastScheduleNumberInt + 1)"
-        let fullRequest = ":#M\(newCommandCell):\(time):"
+        let fullRequest = "#M\(newCommandCell):\(time):"
         state = .loading
+        DispatchQueue.global().async { [weak self] in
+            guard let self else { return }
+            switch self.socketClient.send(string: fullRequest) {
+            case .success:
+                let bytes = self.socketClient.read(10, timeout: 5)
+                DispatchQueue.main.async {
+                    guard let _ = bytes else { self.state = .error(DefaultError.networkError); return }
+                    self.fetchSchedule()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.state = .error(error)
+                }
+            }
+        }
+    }
+    
+    func deleteTime(timeId: String) {
+        state = .loading
+        let fullRequest = "#\(timeId):0000:"
         DispatchQueue.global().async { [weak self] in
             guard let self else { return }
             switch self.socketClient.send(string: fullRequest) {

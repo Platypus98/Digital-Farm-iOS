@@ -54,7 +54,12 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
                             HStack {
                                 Text(element.time)
                                 Toggle("", isOn: binding)
-                            }
+                                    .tint(.green)
+                            }.swipeActions(allowsFullSwipe: true, content: {
+                                Button(appearance.deleteTitle) {
+                                    viewModel.deleteTime(timeId: element.id)
+                                }
+                            }).tint(.red)
                         }
                     }
                     Spacer()
@@ -100,5 +105,6 @@ private extension ScheduleView {
         let timeTitle = Localized("FeedPusher.Schedule.Time.Title")
         let availabilityTitle = Localized("FeedPusher.Schedule.Availability.Title")
         let addTimeTitle = Localized("FeedPusher.Schedule.PickTime.Title")
+        let deleteTitle = Localized("FeedPusher.Schedule.Time.Delete")
     }
 }
