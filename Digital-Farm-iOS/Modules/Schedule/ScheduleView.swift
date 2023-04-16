@@ -55,9 +55,12 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
                                 Text(element.time)
                                 Toggle("", isOn: binding)
                                     .tint(.green)
+                                    .onTapGesture {
+                                        viewModel.changeAvailability(timeID: element.id, newValue: !elementToggle.isEnabled)
+                                    }
                             }.swipeActions(allowsFullSwipe: true, content: {
                                 Button(appearance.deleteTitle) {
-                                    viewModel.deleteTime(timeId: element.id)
+                                    viewModel.deleteTime(timeID: element.id)
                                 }
                             }).tint(.red)
                         }

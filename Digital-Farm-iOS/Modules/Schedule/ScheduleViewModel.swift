@@ -51,9 +51,10 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
         guard case let .loaded(currentViewModels) = state,
               let lastScheduleNumber = currentViewModels.last?.id.suffix(2),
               let lastScheduleNumberInt = Int(lastScheduleNumber) else { return }
-        let newTimeID = "\(lastScheduleNumberInt + 1)"
+        let newTimeID = "M\(lastScheduleNumberInt + 1)"
+        let newTime = time.filter( { $0 != ":" })
         state = .loading
-        scheduleService.fetchAddTime(timeID: newTimeID, time: time) { [weak self] result in
+        scheduleService.fetchAddTime(timeID: newTimeID, time: newTime) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success:
@@ -79,7 +80,18 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
         }
     }
     
-    func changeAvailability(timeID: String, newValue: Bool) { }
+    func changeAvailability(timeID: String, newValue: Bool) {
+        state = .loading
+        scheduleService.fetchChangeAvailability(timeID: timeID, value: newValue) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                self.fetchSchedule()
+            case .failure(let error):
+                self.state = .error(error)
+            }
+        }
+    }
 }
 
 // MARK: - Extension
