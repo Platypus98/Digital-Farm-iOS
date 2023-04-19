@@ -14,7 +14,7 @@ import SwiftSocket
 
 protocol RemoteControlViewModelProtocol: ObservableObject {
     var state: RemoteControlViewModel.State { get }
-    func connectToServer()
+    func fetchData()
     func sendToServer(command: String)
 }
 
@@ -23,27 +23,16 @@ final class RemoteControlViewModel: RemoteControlViewModelProtocol {
     
     let ipAddres: String = UserDefaults.standard.object(forKey: "IP") as? String ?? ""
     let port: Int32 = UserDefaults.standard.object(forKey: "Port") as? Int32 ?? 0
-    let client: TCPClient
+    private let client: SocketClientProtocol
     
     // MARK: - Init
-    init() {
-        client = TCPClient(address: ipAddres, port: port)
+    init(client: SocketClientProtocol = TCPClient.shared) {
+        self.client = client
     }
-
-    // MARK: - Debug
-    func connectToServer() {
-        DispatchQueue.global().async {
-            switch self.client.connect(timeout: 5) {
-            case .success:
-                DispatchQueue.main.async {
-                    self.state = .loaded
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.state = .error(error)
-                }
-            }
-        }
+    
+    // MARK: - RemoteControlViewModelProtocol
+    func fetchData() {
+        state = .loaded
     }
     
     func sendToServer(command: String) {

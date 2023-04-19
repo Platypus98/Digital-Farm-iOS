@@ -8,10 +8,12 @@
 import Foundation
 import Combine
 import SwiftUI
+import SwiftSocket
 
 protocol MainScreenViewModelProtocol: ObservableObject {
     var state: MainScreenViewModel.State { get }
     func fetchDevices()
+    func resetAllConnections()
 }
 
 final class MainScreenViewModel: MainScreenViewModelProtocol {
@@ -21,12 +23,15 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
     private var bag = Set<AnyCancellable>()
     
     private let devicesService: DeviceServiceProtocol
+    private let socketClient: SocketClientProtocol
     
     // MARK: - Init
     init(
-        devicesService: DeviceServiceProtocol = DeviceService()
+        devicesService: DeviceServiceProtocol = DeviceService(),
+        socketClient: SocketClientProtocol = TCPClient.shared
     ) {
         self.devicesService = devicesService
+        self.socketClient = socketClient
     }
     
     // MARK: - MainScreenViewModelProtocol
@@ -42,6 +47,10 @@ final class MainScreenViewModel: MainScreenViewModelProtocol {
                 image: $0.image
             )
         })
+    }
+    
+    func resetAllConnections() {
+        socketClient.close()
     }
 }
 

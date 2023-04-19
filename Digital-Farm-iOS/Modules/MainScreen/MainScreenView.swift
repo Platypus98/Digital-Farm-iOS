@@ -29,8 +29,11 @@ struct MainScreenView<ViewModel: MainScreenViewModelProtocol>: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: {
+            viewModel.resetAllConnections()
             viewModel.fetchDevices()
-        })
+        }).onDisappear {
+            viewModel.resetAllConnections()
+        }
     }
     
     private var content: some View {

@@ -7,11 +7,14 @@
 
 import Foundation
 import SwiftUI
+import SwiftSocket
 
 protocol ScheduleViewModelProtocol: ObservableObject {
     var state: ScheduleViewModel.State { get }
     func fetchSchedule()
     func addTime(time: String)
+    func deleteTime(timeID: String)
+    func changeAvailability(timeID: String, newValue: Bool)
 }
 
 final class ScheduleViewModel: ScheduleViewModelProtocol {
@@ -19,32 +22,74 @@ final class ScheduleViewModel: ScheduleViewModelProtocol {
     // MARK: - Private properties
     @Published private(set) var state = State.loading
     private let scheduleService: ScheduleServiceProtocol
+    private let scheduleViewModelBuilder: ScheduleViewModelBuilderProtocol
     
     // MARK: - Init
     init(
-        scheduleService: ScheduleServiceProtocol = ScheduleService()
+        scheduleService: ScheduleServiceProtocol = ScheduleService(),
+        scheduleViewModelBuilder: ScheduleViewModelBuilderProtocol = ScheduleViewModelBuilder()
     ) {
         self.scheduleService = scheduleService
+        self.scheduleViewModelBuilder = scheduleViewModelBuilder
     }
     
     func fetchSchedule() {
         state = .loading
-        scheduleService.fetchSchedules { [weak self] schedule in
-            let viewModel = schedule.map {
-                ScheduleTimeViewModel(
-                    id: UUID(),
-                    time: $0.time,
-                    isEnabled: $0.isEnabled
-                )
+        scheduleService.fetchSchedules { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let rawData):
+                let viewModels = self.scheduleViewModelBuilder.createViewModels(from: rawData)
+                self.state = .loaded(viewModels)
+            case .failure(let error):
+                self.state = .error(error)
             }
-            self?.state = .loaded(viewModel)
         }
     }
     
     func addTime(time: String) {
+        guard case let .loaded(currentViewModels) = state,
+              let lastScheduleNumber = currentViewModels.last?.id.suffix(2),
+              let lastScheduleNumberInt = Int(lastScheduleNumber) else { return }
+        let newTimeID = "M\(lastScheduleNumberInt + 1)"
+        let newTime = time.filter( { $0 != ":" })
         state = .loading
-        scheduleService.addTime(time) { [weak self] in
-            self?.fetchSchedule()
+        scheduleService.fetchAddTime(timeID: newTimeID, time: newTime) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                self.fetchSchedule()
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.state = .error(error)
+                }
+            }
+        }
+    }
+    
+    func deleteTime(timeID: String) {
+        state = .loading
+        scheduleService.fetchDeleteTime(timeID: timeID) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                self.fetchSchedule()
+            case .failure(let error):
+                self.state = .error(error)
+            }
+        }
+    }
+    
+    func changeAvailability(timeID: String, newValue: Bool) {
+        state = .loading
+        scheduleService.fetchChangeAvailability(timeID: timeID, value: newValue) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                self.fetchSchedule()
+            case .failure(let error):
+                self.state = .error(error)
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftSocket
 
 protocol FeedPusherViewModelProtocol: ObservableObject {
     var state: FeedPusherViewModel.State { get }
@@ -42,26 +43,41 @@ final class FeedPusherViewModel: FeedPusherViewModelProtocol {
     ]
     
     private let feedPusherService: FeedPusherServiceProtocol
+    private let socketClient: SocketClientProtocol
     
     // MARK: - Init
     init(
-        feedPusherService: FeedPusherServiceProtocol = FeedPusherService()
+        feedPusherService: FeedPusherServiceProtocol = FeedPusherService(),
+        socketClient: SocketClientProtocol = TCPClient.shared
     ) {
         self.feedPusherService = feedPusherService
+        self.socketClient = socketClient
     }
     
     // MARK: - FeedPusherViewModelProtocol
     func fetchFeedPusher() {
-        let feedPusher = feedPusherService.fetchInfo()
-        state = .loaded(
-            FeedPusherVisualModel(
-                statusText: getStatusText(feedPusher.status),
-                statusColor: getStatusColor(feedPusher.status),
-                chargeLevel: feedPusher.chargeLevel,
-                stockLevel: feedPusher.stockLevel,
-                dispenserPerformance: feedPusher.dispenserPerformance
-            )
-        )
+        DispatchQueue.global().async { [weak self] in
+            guard let self else { return }
+            switch self.socketClient.connect(timeout: 5) {
+            case .success:
+                DispatchQueue.main.async {
+                    let feedPusher = self.feedPusherService.fetchInfo()
+                    self.state = .loaded(
+                        FeedPusherVisualModel(
+                            statusText: self.getStatusText(feedPusher.status),
+                            statusColor: self.getStatusColor(feedPusher.status),
+                            chargeLevel: feedPusher.chargeLevel,
+                            stockLevel: feedPusher.stockLevel,
+                            dispenserPerformance: feedPusher.dispenserPerformance
+                        )
+                    )
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.state = .error(error)
+                }
+            }
+        }
     }
 }
 

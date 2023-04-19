@@ -30,8 +30,10 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
         switch viewModel.state {
         case .loading:
             return AnyView(ProgressView())
-        case .error:
-            return AnyView(ProgressView())
+        case .error(let error):
+            return AnyView(
+                Text(error.localizedDescription)
+            )
         case .loaded(let schedulesTimes):
             return AnyView(
                 VStack {
@@ -52,7 +54,15 @@ struct ScheduleView<ViewModel: ScheduleViewModel>: View {
                             HStack {
                                 Text(element.time)
                                 Toggle("", isOn: binding)
-                            }
+                                    .tint(.green)
+                                    .onTapGesture {
+                                        viewModel.changeAvailability(timeID: element.id, newValue: !elementToggle.isEnabled)
+                                    }
+                            }.swipeActions(allowsFullSwipe: true, content: {
+                                Button(appearance.deleteTitle) {
+                                    viewModel.deleteTime(timeID: element.id)
+                                }
+                            }).tint(.red)
                         }
                     }
                     Spacer()
@@ -98,5 +108,6 @@ private extension ScheduleView {
         let timeTitle = Localized("FeedPusher.Schedule.Time.Title")
         let availabilityTitle = Localized("FeedPusher.Schedule.Availability.Title")
         let addTimeTitle = Localized("FeedPusher.Schedule.PickTime.Title")
+        let deleteTitle = Localized("FeedPusher.Schedule.Time.Delete")
     }
 }
